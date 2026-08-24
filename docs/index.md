@@ -6,5 +6,9 @@ Welcome to Josef Chelala's Sophomore Design portfolio. I am a mechanical enginee
 
 
 
-<img width="1280" height="1635" alt="Albert_Einstein_sticks_his_tongue" src="https://github.com/user-attachments/assets/0109e622-f59c-4791-b403-8469973c8338" />
+<img width="256" height="327" alt="Albert_Einstein_sticks_his_tongue" src="https://github.com/user-attachments/assets/0109e622-f59c-4791-b403-8469973c8338" />
+
 > **“It is not so very important for a person to learn facts. For that he does not really need a college. He can learn them from books. The value of an education in a... college is not the learning of many facts but the training of the mind to think something that cannot be learned from textbooks.” — Albert Einstein, 1921**
+
+
+
