@@ -1,14 +1,25 @@
 # Josef Chelala — MEGR 2157 Portfolio
 
+![MEGR 2156-7 Title](MEGR2156title.png)
 
+This site is the working record of your engineering design decisions across MEGR 2157. Every entry follows the Analyze, Decide, Communicate structure in accordance with standard engineering documentation practice, so a reader can see not just what you built, but how and why you built it that way. Engineering documentation is a skill developed through deliberate practice. Each assignment is an opportunity to improve the precision, clarity, and professional quality of how you record and defend your work. As you progress through the semester your engineering capability will grow alongside your documentation — this portfolio is the record of that journey.
 
-Welcome to Josef Chelala's Sophomore Design portfolio. I am a mechanical engineering student at the University of North Carolina at Charlotte. This website is my portfolio for the work I have done for my MEGR 2157 class that will show who I am, how I approach and solve problems; and what I am capable of as an engineer. Please use the left navigation column to go through my portfolio, and the right navigational column to jump to specific parts of the current webpage.
+> **Engineering is the art of making decisions you can defend.**
 
+## The three pillars
 
+Most assignment pages are organized around:
 
-<img width="256" height="327" alt="Albert_Einstein_sticks_his_tongue" src="https://github.com/user-attachments/assets/0109e622-f59c-4791-b403-8469973c8338" />
+- **Analyze** — the calculations, models, and data behind your design.
+- **Decide** — the choice you made and, critically, the reasoning for it.
+- **Communicate** — the drawings, report, and presentation you'd hand to a client.
 
-> **“It is not so very important for a person to learn facts. For that he does not really need a college. He can learn them from books. The value of an education in a... college is not the learning of many facts but the training of the mind to think something that cannot be learned from textbooks.” — Albert Einstein, 1921**
+Use the navigation on the left to move between assignments.
 
+## Semester arc
 
+- **Act I (Weeks 1–7):** Building vocabulary through the bracket sequence.
+- **Act II (Weeks 8–11):** Surveying the machine-element landscape and formally comparing options.
+- **Act III (Weeks 12–15):** Building the complete lead screw translating system.
 
+By A11, every design decision you defend should trace back to something you analyzed and communicated earlier in this site.
