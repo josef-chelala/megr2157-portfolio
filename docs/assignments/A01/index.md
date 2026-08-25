@@ -4,6 +4,8 @@
 Nathan Hoong engineering portfolio : https://nhoong.github.io/
 Navigability: 
 This engineer chose to place the most important parts of his portfolio directly on the front page. Although this requires the reader to scroll, all of his work is located directly underneath the “About Me” section at the top of the page. It took approximately 5 seconds of scrolling to reach his first few listed projects. The projects are also formatted with arrows that allow the user to cycle through multiple photographs without opening a separate page. This keeps the webpage compact and reduces the amount of navigation required to view the work.
+
+  
 Reproducibility: 
 Of the seven works shown, only two provide enough documentation on the webpage to reproduce the work without additional questions. The “Shock Top Assembly” is a relatively simple component and includes an image of its blueprint with enough measurements for a colleague to recreate it. A senior project completed during college can also be nearly reproduced. The engineer provides a link to the full project report, which contains fully dimensioned blueprints for almost every component. However, the model head used during testing is not fully documented.	
 
