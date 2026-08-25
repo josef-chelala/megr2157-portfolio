@@ -35,18 +35,28 @@ Professional tone: Based on his portfolio, it is clear that the engineer is very
 
 
 ## Analyze
+
+<img width="2927" height="2574" alt="Clip" src="https://github.com/user-attachments/assets/986f2bd1-022f-43d4-bba2-fd7ad5d7aaa1" />
+
+
 The food bag clip uses a torsion spring (around a pin) that turns bending stress in the spring into torque. This allows its legs to apply an outward force at the back squeezing section of the arm. Since the arms are levers along the fulcrum, the outward force at the back causes a moment of the arm along the fulcrum that translates to a delivery of a constant force that clasps the teeth together to keep food bags closed. Additionally, when the squeezing section is pushed together by a user, this creates a torque that overwhelms the springs torque, and which leads the teeth opening. Once the arms are let go, the tension in the spring forces the teeth to close again.
 
 The primary governing model of the bag clip is torque and moment, represented by the equation τ = M = rF = kθ. The variable τ and M are torque and moment respectively; both are used since they essentially the same thing and that there is both twisting and bending The variable “r” is the distance from the fulcrum, which in this case is the metal pole at the center of the clip, to the point where the torsion spring’s straight legs press against the clamp arms. It also represents the distance from the fulcrum to where the user applies force to the arms. The variable “F” represents force. One force is produced by the torsion spring as it attempts to return its legs to their original position, while the other is the force applied by the user’s fingers to the clip arms. The variable “k” is the spring’s torsional spring constant, which represents the amount of torque required to rotate the spring by a given angle. Lastly, θ represents the angular displacement of the spring from its original position. 
 One assumption is that the spring was twisted (applied torque) and then held in place by the arms and fulcrum, this stored elastic potential energy in the spring which keeps applying a restoring force to the system as it tries to go back to its initial position. This restoring force can be found by rearranging my chosen equation, “F = kθ / r” can be used to relate the torque produced by the torsion spring to the force exerted by its straight legs on the clamp arms, which causes the arms to rotate closed when the user releases the clip. 
 
+<img width="1188" height="423" alt="pin" src="https://github.com/user-attachments/assets/e01920f7-eb94-4246-a6d9-ff21f5fe3f7f" />
 
 Pin
 The pin being a smooth thin rod allows several functions. Its smoothness reduces the friction between itself and the connect parts. This allows the parts to rotate freely, reducing the amount of force the user or the spring needs to apply for it to work properly. Also, the rod shape reduces the number of directions of moment and torque between the components of the clip. Lastly, since the pin is a simple rod, it relatively does not have ways in which it can bend or twist when connected to the product. This allows it to act as a fulcrum.
 
+<img width="1463" height="990" alt="Spring" src="https://github.com/user-attachments/assets/001a5e16-9e1f-4ec1-953c-9028be46388e" />
+
 Torsion Spring
 The spring being used is a torsion spring, which unlike a regular spring that can cause force when compressed or stretched, allows torsion when it is twisted. The number of coils and their diameter determine the strength of the torque that can be applied by the spring. The legs of the spring allow it to apply torque and moment to the arms, however the length of the arm reduces the amount of force due to the radius in F = M/r.  This allows safer clamping and the ability to close it with a person’s fingers.  	
 
+<img width="5038" height="3960" alt="Top VIew" src="https://github.com/user-attachments/assets/f0e2bc5f-0cc3-44fa-bf6c-f4f4d4be45d3" />
+
+<img width="4356" height="1859" alt="Side View" src="https://github.com/user-attachments/assets/c01c618c-d054-45aa-b0ea-2d2368ac079a" />
 
 
 Arms
