@@ -7,7 +7,8 @@ After exploring the different fields of engineering, I decided to pursue mechani
 As I continue my education at UNC Charlotte, I hope to strengthen my problem-solving, communication, and technical skills. In the future, I want to focus more heavily on the manufacturing side of mechanical engineering. Through my classes and personal projects, I have discovered that I particularly enjoy the process of turning an idea into a physical product. Working with machinery and CAD software to design, manufacture, test, and improve products is the type of work I could see myself doing every day.
 
   
-> **What does it mean to defend an engineering decision : and do you currently know how to do it?**
+> **What does it mean to defend an engineering decision and do you currently know how to do it?**
+
 Solving engineering disagreements has the same foundations as solving any disagreement. The most important way to defend an argument is to provide evidence. Outside but also including engineering, arguments are backed by statistics, scholarly sources, and sound logic. Engineers can take this further in several ways, such as running tests themselves either physically or in a simulation. Defending an argument with only evidence is only a piece of the puzzle. It also requires effective communication, sometimes requiring a structural approach similar to studies done in other fields. 
 While, I feel I have a decent understanding of what defending an argument entails. Actually being able to go through this process is something I feel I greatly lack in. Specifically, I feel as though my research skills and communicating my results are rather weak.
 
