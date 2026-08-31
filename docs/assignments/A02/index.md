@@ -1,3 +1,6 @@
+A500 steel is only used for hollow tubing. I could not find it in solidworks, and the data for the material properties would not match for this use case. SO I decided on using a different steel that was found within solidworks. I decided on A36 steel because
+
+
 # A2 – Truss Stress Analysis
 
 ## Objective
