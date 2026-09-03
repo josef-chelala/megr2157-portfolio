@@ -136,10 +136,14 @@ In this project, I learned to use my acquired skills in Statics and Solid Mechan
 This project took far longer than I anticipated. I am greatly ashamed to say that this took me 25 hours to complete. While the additional 2157 section did not help, this was solely on me. Clearly I need to stop being perfectionist or this semester will collapse on me
 
 ## Downloads
-I could not figure out how to add the file to github and then create a link to download it. Therefore, I sorta made a link by adding it to google drive
+It is 5 am in the morning and I could not figure out how to add the file to github and then create a link to download it. Therefore, I sorta made a link by adding it to google drive. Will ask you in class
+
 <br>
+
 [Download the Assembly file](https://drive.google.com/file/d/1sX2JDRyo7afdWlEH9ArCTRdWYHsmD614/view?usp=sharing)
+
 <br>
+
 [Download the Pin Calculations Excel File](https://drive.google.com/file/d/1nPx7aJNp63s1KIba1FtsJjbYoRHGnDxm/view?usp=sharing)
 ## Sources
 ![Truss Problem](PicturesV2/28.JPG)
