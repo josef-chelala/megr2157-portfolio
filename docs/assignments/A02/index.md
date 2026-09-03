@@ -67,10 +67,10 @@ While not exactly angles, I then reused the triangles I made to find lengths by 
 
 ### Method of Joints
 Now that I have my reaction forces and angles, I am now able to use the method of joints. I have already put way to much time into this project and overexplained a lot already, so I will only explain my work for pin A.. Keep in mind that when I speak of quadrants, I treat the current pin as the origin of the graph and treat the quadrant I name as where the force arrows is located. However, I treat the quadrant that the vector's direction actually points to on how to decide the (±x, ±y) like an actual vector. Lastly, due to equal and opposite reactions, if the arrow points away from the pin that means the member itself is in tension and then visa versa. Here is a visual guide if my explanation is confusing
-![Truss Problem](PicturesV2/9.jpg)
+![Truss Problem](PicturesV2/9.JPG)
 #### Pin A: FBD and Solution
 To start, I chose to start at Pin A since it has one known force and only two unknown forces making it rather simple math. In this first method of joints, I was not rather efficient because I did more work then necessary, but I quickly adapted afterwards. At the beginning, I knew that only Ay and F_AE had a y-component, that Ay was in the positive y-direction on the border of quadrant 1 and 2, and that F_AE was in quadrant 3. Based on this info and the process of elimination, the force arrow for F_AE must point away from the pin in order to have equal and opposite y-force to fight Ay. Since F_AE is in quadrant 3 and points away from the pin, F_AE has (-x, -y) components and that member two is in tension. To find F_AE I went backwards for this specific pin: first I used my triangle guide to quickly change F_AEy into F_AE(adj/hypo) and F_AEx into F_AE(op/hypo), then used ΣFy = 0 to put Ay and F_AE in the same equation. Next, since they are equal and opposite, I equated F_AE = Ay(hypo/adj) and solved for F_AE. Moving on to finding F_AC, since I know from earlier that  F_AEx must be facing in the -x direction, F_AC must be positive in order for ΣFx = 0 to be satisfied. After equating ΣFx = 0 to the sum of the x components. Flipping F_AEx to the 0 side of the equation, I then applied F_AEx=F_AE(op/hypo), took F_AE = Ay(hypo/adj) from earlier, and found that F_AC=F_AEx=Ay(opp/adj). This was the long winded way to solve this pin, but as my work shows, I became more effiencet
-![Truss Problem](PicturesV2/10.jpg)
+![Truss Problem](PicturesV2/10.JPG)
 #### Rest of the Pins: FBD and Solutions
 ![Truss Problem](PicturesV2/11.jpg)
 #### End result
@@ -95,35 +95,35 @@ To find the weight of the pins, I just had to do it the same way I had done it w
 ![Truss Problem](PicturesV2/16.jpg)
 ### Creating the Shear Connection Pin in Solidworks
 To start, I first created a simple circle with the radius needed to create the minimum cross sectional area of the pin. The length will be changed later
-![Truss Problem](PicturesV2/17.jpg)
+![Truss Problem](PicturesV2/17.JPG)
 Then I created the screw-in secondary pin. Instead of creating a seperate part and build an assembly, I just treated it as one part. For simplicity, I decided to make the this pins diameter nearly half of the primary's, and made the distance between its center to the primary's edge be the same as well. Then I extruded the pin to be about double the diameter of the primary pin.
-![Truss Problem](PicturesV2/18.jpg)
+![Truss Problem](PicturesV2/18.JPG)
 Next, I moved to the bottom of the shaft. I just created a rectangle that had the width of the primary pin's diameter with the same length as the diameter of the secondary pin as well as its thickness.
-![Truss Problem](PicturesV2/19.jpg)
+![Truss Problem](PicturesV2/19.JPG)
 Then I tapped the screw hole into both pins by making a cut excrusion through both holes. Due to a lack of knowledge on how to make a good screw hole for this situation (and as stated already in the wrong position) I just decided on half the diameter of the secondary pin and then cut down to halfway through the secondary pin.
-![Truss Problem](PicturesV2/20.jpg)
+![Truss Problem](PicturesV2/20.JPG)
 Lastly, I used the thread tool create a thread in the hole with the default thread type.
-![Truss Problem](PicturesV2/21.jpg)
+![Truss Problem](PicturesV2/21.JPG)
 However, I decided to tinker with the equations tools in solidworks to calculate the length of the overall pin that creates the exact amount of space needed between the secondary pin and the rectangular bottom of the shaft that would allow the members to be kept in place. To do so, I took the length equation I used before (number of members times width of a member) and added on the extra bits of lengths from the additional components I added and set that as the overall length of the pin. The example below is pin C and you can compare it to the excel sheet.
-![Truss Problem](PicturesV2/22.jpg)
+![Truss Problem](PicturesV2/22.JPG)
 
 ### Truss in Solid Works
 This part was relatively simple. For the sketch I used, I simply recreated the outline of the truss design in solid works using the  given "a" and 'b" lengths. Then I simply connected where pins D and E are located to halfway of the top beam. This time giving the width of the beams and adding the pinholes the size of the pins diameter. Then I created additional circles sourrounding the pin holes to allow the members to maintain the cross-sectional area of each element at the intersection of the pin joint. To do so, I simply added together the pins diameter and the memebers width to get the new circles diameter. 
-![Truss Problem](PicturesV2/23.jpg)
+![Truss Problem](PicturesV2/23.JPG)
 To finish the members portion of the truss, I simply extruded it to width of the members.
-![Truss Problem](PicturesV2/24.jpg)
+![Truss Problem](PicturesV2/24.JPG)
 Next, I created and assembly of the truss and pins. Making sure to place each pin model I created into the right place, which was not hard since only one pin was different from the rest. I was able to do so by using the mate tool to align each pins circular surface area with the pin holes surface area located the members intersections. Then I centered each one of them only their central planes. 
-![Truss Problem](PicturesV2/25.jpg)
+![Truss Problem](PicturesV2/25.JPG)
 ![Truss Problem](PicturesV2/26.jpg)
 Lastly, I went to the material properties section of the assembly, bumped up the accuracy and decimal points to a lower decimal place, and calculated the actual weight of the assembly. It was found to be 7.550kg. To find the difference is simple by just subtracting the calculated weight by the actual: 7.550kg - 0.1684kg - 7.311kg = 0.0706 kilograms. This is not bad considering that I changed the pin design and the ends of the members.
-![Truss Problem](PicturesV2/27.jpg)
+![Truss Problem](PicturesV2/27.JPG)
 
 ## Likelihood of Failure Modes in Truss Components
 ### Members
 I came to the conclusion that members 1 and 5 will buckle first, and the rest will yield first.
 
 As learned in Manufacturing Systems, steel will yield far before fracturing, so I feel it is safe to assume this will follow suit. With buckling, well I actually forgot how that equation worked since I was briefly taught in my statics class and it never showed up on tests, I was required to at least to look that up. After a quick refresher, I found this would be simpler that I thought. For one, any members that are in tension can ignore buckling since it requires compression, therefore they will yield before buckling. For those that are in compression, it depends on the lengths of each member. Since there were only three members in compression, I decided to just solve it with math. For my truss, all members are pin to pin, therefore K = 1. Then for my moment of inertia, I was able to easily solve since the equation is simply a^4/12. Lastly, I took the elastic modulus from Solidworks. I then also calculated the force that would be required to yield given my chosen cross sectional area. My results showed that it takes less compressive forces on members 1 and 5 to buckle then for yielding to occur. One way to decrease the chance of buckling is to add more webs to the truss and splitting up the chords more. This will decrease the lengths of the members further which lowers 1/L^2 in the buckle equation which is proportional to an increase in the critical buckle load. To decrease the chances of yielding for the rest of the members, the simple answer is to increase the cross sectional area of each member, as shown through out our work in this project.
-![Truss Problem](PicturesV2/29.jpg)
+![Truss Problem](PicturesV2/29.JPG)
 ### Pins
 Since pins are such a short length, they absolutely will not buckle due to 1/L^2 from the buckling equations I used earlier. Also, the material we used for the pins are made of hardened steel. As I stated before they will almost always yield before it will fracture due to steels stress-strain graph (although it could in extremely rare situations). To show this, I searched for the material using the given info the professor gave to us, and I found that the material is D2 Tool Steel ("D2 Tool Steel"). From there, I found a stress-strain graph (Algarni), as seen below, that shows that it takes a significant amount more force to fracture than for it to yield Therefore, the most likely failure will be yielding. While trying to figure out a way to add more resistance to yielding while keeping the same material, I could not find any other reasons than when I had done for this project. The only thing that can be done is to further increase the cross sectional area of the pins.
 ![Truss Problem](PicturesV2/D2_graph.png)
@@ -135,5 +135,9 @@ In this project, I learned to use my acquired skills in Statics and Solid Mechan
 
 This project took far longer than I anticipated. I am greatly ashamed to say that this took me 25 hours to complete. While the additional 2157 section did not help, this was solely on me. Clearly I need to stop being perfectionist or this semester will collapse on me
 
+## Downloads
+I could not figure out how to add the file to github and then create a link to download it. Therefore, I sorta made a link by adding it to google drive
+[Download the Assembly file](docs/assignments/A02/Downloadables/Completed Truss.zip)
+
 ## Sources
-![Truss Problem](PicturesV2/28.jpg)
+![Truss Problem](PicturesV2/28.JPG)
