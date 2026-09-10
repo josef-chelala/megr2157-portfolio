@@ -2,7 +2,7 @@
 ## Objective
 The class is required to use axial deflection modeling and parametric design to determine the appropriate dimensions and length of a bar by parametrically designing it within CAD. The project also introduces Finite Element Analysis (FEA) and allows us to compare different analysis methods to evaluate and improve the design. I will be using SolidWorks with its Simulation addon to use as an FEA since I learned to use it in a previous class. We are told to choose the dimensions of the cross sectional area and choose the material's young modulus and axially applied load within given ranges. We are also given a max axial deflection of .009 inches (in). 
 
-## Part 1: Parametric Design
+## Parametric Design
 ### Choosing and Setting Up the Parametric Calculations 
 To start, I wrote down the general idea of how this project will go as shown below (I made additional changes later). 
 ![Inserted Picture](Pictures/1.png)
@@ -42,7 +42,7 @@ Well, it was definitely a lot bigger then I expected and I already expected it t
 
 
 
-## Part 2: Finite Element Analysis
+## Finite Element Analysis
 ### Setting Up the FEA
 Due to the lack of time, I will be giving a general explanation of each step and I will be substituting the detailed explanation gifs that show clearly each step I had committed. 
 #### Starting SolidWorks Simulation
@@ -55,7 +55,7 @@ Next, I added a fixed geometry fixture to one of my cross sectional areas. This 
 Next I added my chosen load to the opposite cross sectional area. I made sure it was facing the right direction, that it was in lbf units and that I typed in 500 lbf. I later realized I should have typed in my force variable, so I went back and change it to that.
 ![Inserted Picture](Pictures/10.gif)
 #### Creating the Mesh
-In SolidWorks, a mesh is necessary to run simulations. Without even having to look this up, the reason is that it breaks down the model into smaller pieces so that calculations will not take an enormous amount of time or use up all the computer's resources. This is required for highly advanced models and assemblies which would take an extreme amount of time and resources to complete. For this simple model, I decided to bump up the mesh quality to the highest the slider can go, but it is possible to force it to be even higher. 
+In SolidWorks, a mesh is necessary to run simulations. Without even having to look this up, the reason is that it breaks down the model into smaller pieces so that calculations will not take an enormous amount of time or use up all the computer's resources. This is required for highly advanced models and assemblies which would take an extreme amount of time and resources to complete. For this simple model, I decided to bump up the mesh quality to the highest the slider can go, but it is possible to force it to be even higher. This should give very high quality results
 ![Inserted Picture](Pictures/11.gif)
 #### Running the Simulation
 With everything setup, it is time to run the simulation. This is done by hitting the Run This Study button at the top. In the gif below I speed up the process, but once it finishes, it creates a folder with all the important data
@@ -72,6 +72,10 @@ With that settled, I found that the max stress was .311 ksi or more simply just 
 ![Inserted Picture](Pictures/15.png)
 ![Inserted Picture](Pictures/16.png)
 
+##### Calculating the Factor of Safety
+Calculating the factor of safety is incredibly simple. One simply has to divide the yield strength by the FEA calculated max Stress. This is when I realized that the yield strength were we supposed to use was 40 ksi. I calculate using this number and the data I collected and found that the safety factor was a whopping 128.617. Absolutely unnesseray for a fast amount of engineering projects.
+![Inserted Picture](Pictures/19.png)
+
 ##### Strange Phenomenon
 To investigate, I used the ISO tool which allows me to show only sections of the model that are either above or below a selected stress. Interestingly, all stresses above 251 psi and below 249 psi were specifically near the fixture. I wonder what this is. I wish I could investigate but I do not have time. This also shows that the rest of the bar is within that range which is entirely expected based on basic Solid Mechanics
 ![Inserted Picture](Pictures/Extra.gif)
@@ -86,34 +90,78 @@ As the results show, the max deflection (really deflection is actually displacem
 
 
 
+## Comparison of Results
+### Percent Difference
+Unsurprisingly to me, the results show that the calculate result and the FEA basically came to the same conclusion on the axial deflection. I calculated the percentage differences between and I got a 0.0111117% difference.
+![Inserted Picture](Pictures/20.png)
+
+### Why so close? Who is better?
+The setup for this problem is one of the most basic problems taught in Solid Mechanics. It uses the most basic conditions that a problem like this can have with single axial loading along the members length, one side being fixed, and no other external factors. On the math side, it is incredibly easy to calculate and does not take any thought to how the stress might be disturbed since the tensile stress application is spread out through the entire cross sectional area. On the computer side of things, SolidWorks Simulation is a pretty high quality simulator that can easily compute this problem. Not only does it get the problem right, it actually is able to take into account far more real life factors to give an even more realistic result that an engineering student wouldn't even think to account for or to even know how to calculate as seen in the strange phenomenon the FEA uncovered. Further more, I didn't even force the simulation to make the mesh even more detailed, so it is possible I can get even better results. In reality, I do think it is a good idea to use both when possible, however, I believe that FEA gives a better and more realistic result overall. Therefore, I think FEA is the better choice. Plus when there are too many variables and factors to take into account, simulations are generally better.
 
 
 
 
-Taking a shot in the dark, there is more vom misses stress at fixed end due to material at those points are not free. Then there is more deflection at the opposing end due to completely free movement with no material ahead of it to disturb it. With the deflection increasing as you get closer to the free end since there is less material infront of them to fight.
+## Adding a Hole
+After going through a [pdf I found of chapter 4 of Peters Stress Concentration Factors book](https://onlinelibrary.wiley.com/doi/10.1002/9781119532552.ch4), I found a chart for, what I believe, is my bars stress factor chart with a hole in the side.
 
-To find the factor of safety, simply need to divide the yield strength by the max recorded stress. Sadly, we are required to use 40 ksi as the yield strength for Aluminum instead of 1199 aluminum. I found the factor of safety to be about 128.617.
+![Inserted Picture](Pictures/21.png)
 
-
-
-After going through a [pdf I found of chapter 4 of Peters Stress Concentration Factors book](https://onlinelibrary.wiley.com/doi/10.1002/9781119532552.ch4), I found a chart for, what I believe, is my bars stress factor chart
-
-{INSERT CHART HERE}
-
-Having no idea what was going on and running low on time, I admittedly asked ChatGPT how to use this strange chart. I simply grabbed the chart and parts of the pdf that talked about it and asked ChatGPT "What do the different stress factors shown represent and what they are used for?" After some discussion, it told me that the "tg" version of the stress factor are in cases where I have the know stresses of the bar without the hole in it. So I decided to use the equations for the "tg" version. Before that, since this is dependent on an axial normal force, I decided to see what the normal stress along the axis was. At this point, I realized that the max stress at the fixture maybe some sort of error or anomaly. To test it, I used the probe tool to see the stresses through out the bar. It seemed that my assumption was correct since everywhere except the fixture had a x-normal stress  ranging from 249.98 psi to 250.4. This does make sense since the normal stress of F/A the applied force is 500 lbf and the cross sectional area is 2 in^2. Despite this being a possible anomaly, I will keep the calculated safety factor the same because in real life those heavy stresses at the fixture will likely be where the aluminum would yield first. Whereas, the hole is unlikely to be near the hotspots near the fixtur.
+Having no idea what was going on and running low on time, I admittedly asked ChatGPT how to use this strange chart. I simply grabbed the chart and parts of the pdf that talked about it and asked ChatGPT "What do the different stress factors shown represent and what they are used for?" After some discussion, it told me that the "tg" version of the stress factor are in cases where I have the know stresses of the bar without the hole in it. So I decided to use the equations for the "tg" version. Before that, since this is dependent on an axial normal force, I decided to see what the normal stress along the axis was. At this point, I realized that the max stress at the fixture is maybe some sort of error or anomaly. To test it, I used the probe tool to see the stresses through out the bar. It seemed that my assumption was correct since everywhere except the fixture had a x-normal stress  ranging from 249.98 psi to 250.4. This does make sense since the normal stress of F/A the applied force is 500 lbf and the cross sectional area is 2 in^2. Despite this being a possible anomaly, I will keep the calculated safety factor the same because in real life those heavy stresses at the fixture will likely be where the aluminum would yield first. Whereas, the hole is unlikely to be near the hotspots near the fixtur.
 
 
-{INSERT STRESS FACTOR GIF HERE}
+![Inserted Picture](Pictures/22.gif)
 
-With this in mind, I decided to use the 250 psi as my nominal stress for the calculation needed to find the max stress. Out of curiosity,  I decided to make a near worse case scenario for the side I will put the hole through. The hole will go through the 2 inch side wall, and the hole's diameter will be 1.9 in. As shown below, first I calculated the stress factor, then I calculate the max stress. Unsurprisingly the shear factor was about 40. Considering there would only be a height of .05 in left, this makes complete sense. Then, I found that the max shear stress from this equation would be about 10,000 psi. That is a drastic increase, so how does the factor of safety hold up? Using the max 
+With this in mind, I decided to use the 250 psi as my nominal stress for the calculation needed to find the max stress. Out of curiosity,  I decided to make a near worse case scenario for the side I will put the hole through. The hole will go through the 2 inch side wall, and the hole's diameter will be 1.9 in. As shown below, first I calculated the stress factor, then I calculate the max stress. Unsurprisingly the shear factor was about 40. Considering there would only be a height of .05 in left, this makes complete sense. Then, I found that the max shear stress from this equation would be about 10,000 psi. That is a drastic increase, so how does the factor of safety hold up? Using the equation I used before to calculate the new safety factor of 4. Therefore that means the hole decreases the factor of safety 
 
-I will run some numbers through a random number generator and make my guess there. Since I know the 
+![Inserted Picture](Pictures/23.png)
 
 
-Learned I really needed to follow the directions more closely.
+
+
+## FEA of a New Bar
+### Length increase or decrease?
+I will run some numbers through googles random number generator and make my guess from there. 
+1. Force = 26658 lbf
+2. Width = 32 in 
+3. Height = 26 in
+The length will definitely increase because of the rearranged equation for length I made at the start. Based on these numbers, 32*26 is probably near a thousand. Treating the force simply as 10000, and the fact the equation has A/F, that means at aa the ratio is 1/10. From before the area was only 2in^2 and the force was 500, which gave a 1/250 ratio. Based on that rough estimate, the length will certainly increase.
+
+### Reality
+To see if I was right, I went to SolidWork, inputed the new numbers and let it rebuild the new shape. With resultant of 2525.21 inches. Meaning that was correct on my assumption
+![Inserted Picture](Pictures/24.gif)
+
+### Von Mises Stress Map
+#### Data
+With that finished, I restarted the simulation and setup the fixture and force. Then I ran the simulation and I found that the max Stress for this new bar is a near to nothing with 41.186 psi. This makes sense using the same logic as my guess about the length. Stress is F/A, and since the ratio comparison from before was 1/10 vs 1/250, the the flipped result will still show how the new bar is lesser in these circumstances. 
+
+![Inserted Picture](Pictures/25.png)
+
+#### Factor of safety
+Using the same equation from before, I calculated the factor of Safety as 971. So it is far away from yielding.
+![Inserted Picture](Pictures/26.png)
+
+### Deflection
+Lastly is deflection, I set up the data graph with the correct. I found that the max displacement is .008996 in. Again, the software gets nearly the same answer that was calculated. 
+![Inserted Picture](Pictures/26.png)
+
+
+## Lessons Learned
+### What I learned
+I learned how parametric design can be used to connect dimensions and equations in SolidWorks to determine the required geometry of a bar. I also learned how to set up and interpret an FEA simulation, including stress, displacement, and factor of safety results. Finally, I learned that analytical calculations and FEA can produce very similar results for simple loading conditions, while FEA can also account for more complex factors that are difficult to calculate manually.
+
+### Time
+It took me 10 hours to finish this project due to research and going too far a bit. So the only real mistake I made is trying too hard.
+
+
+## Parts Files
+[You can download the parts files by clicking here.](https://drive.google.com/file/d/1_ckbXdhOMa8RIYmPk1_Jp9HrhMVxH5HJ/view?usp=sharing)
 
 ### Resources
 1. https://tkcopperandbrass.com/2022/04/07/a-guide-to-the-aluminum-alloy-numbering-system/
-2. ChatGPT.com - to understand alloy naming conventions and a strange stress factor graph
+2. https://www.matweb.com/search/datasheet.aspx?MatGUID=7a321b89269943629bb6d7a0a4a357b2
+3. https://www.academia.edu/39950576/Aluminium_Design_Manual_
+4. https://dl.asminternational.org/handbooks/edited-volume/91/chapter/2090685/1xxx-Aluminum-Alloy-Datasheets
+5. ChatGPT.com - to understand alloy naming conventions and a strange stress factor graph
 
 Professor Ozgur Keles
+SolidWorks
