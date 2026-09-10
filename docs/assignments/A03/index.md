@@ -70,7 +70,7 @@ Sadly, the default settings for data are in SI units, so first I decided to chan
 With that settled, I found that the max stress was .311 ksi or more simply just 311 psi. Interestingly, the min and max forces are found at the fixture. 
 ![Inserted Picture](Pictures/14.png)
 ![Inserted Picture](Pictures/15.png)
-![Inserted Picture](Pictures/16.png)
+![Inserted Picture](Pictures/16.PNG)
 
 ##### Calculating the Factor of Safety
 Calculating the factor of safety is incredibly simple. One simply has to divide the yield strength by the FEA calculated max Stress. This is when I realized that the yield strength were we supposed to use was 40 ksi. I calculate using this number and the data I collected and found that the safety factor was a whopping 128.617. Absolutely unnesseray for a fast amount of engineering projects.
