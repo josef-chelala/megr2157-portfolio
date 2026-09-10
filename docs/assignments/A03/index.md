@@ -142,7 +142,7 @@ Using the same equation from before, I calculated the factor of Safety as 971. S
 
 ### Deflection
 Lastly is deflection, I set up the data graph with the correct. I found that the max displacement is .008996 in. Again, the software gets nearly the same answer that was calculated. 
-![Inserted Picture](Pictures/26.png)
+![Inserted Picture](Pictures/27.png)
 
 
 ## Lessons Learned
