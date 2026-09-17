@@ -8,41 +8,45 @@ Also, the project is heavily dependent of the [design of the motor given to us a
 <img width="2736" height="961" alt="image" src="https://github.com/user-attachments/assets/dec8c0e4-8c03-417e-93e8-33e781cd6772" />
 
 ## General Approach
-The only way to solve these problems is to pick reasonable length and then pick a reasonable base or height and solve for the other. Height would be problematic for the shaft in feature 1, plus feature 1 and 2 will share the same base, therefore I chose to solve for height and pick my own base.
+The only way to solve these problems is to pick reasonable length and then pick a reasonable base or height and solve for the other. Height would be problematic for the shaft in feature 1, plus feature 1 and 2 will share the same base, therefore I chose to solve for height and pick my own base to have an even number.
 
 ## Feature 1
 ### Knowns and Unknowns
-To start, I wrote down every known and unknown that will likely be necessary to use to solve for the cross sectional area of feature via yielding and deflection.
+To start, I wrote down every known and unknown that will likely be necessary to be able to solve for the cross sectional area of feature via yielding and deflection.
 <img width="5302" height="14234" alt="Knows 1" src="https://github.com/user-attachments/assets/30c70685-37a8-4221-aef8-606580b03f2c" />
 
 ### Figuring Out Length and Base
-Next, in order to solve I had to calculate the lengths I needed to solve these equations. I extensively wrote my explanations in my notes below. Due to lack of time, I decided on 10mm gap. Also decided to give all edges surrounding motor 5mm gaps, to minimize creating as much height as possible
+Next, before I am able to continue, I had to calculate the lengths and the base I needed to solve these equations. I extensively wrote my explanations in my notes below. In the end, I had to constantly solve for the yield and deflection in order to find a height to miniminze the amount of choking of the shaft while balancing a base length that would not be significantly large.  Due to lack of time, I decided on 10mm gap. I also decided to give a 5mm gap between the open end of the beam and the motor to minimize creating as much height as possible. 
 
 <img width="5369" height="26451" alt="F1_ Length and Base" src="https://github.com/user-attachments/assets/a73ec022-6093-42dc-9216-1bcc0a37b0e1" />
 
 
 
 ### Deflection
-Next, I symbolically solved and then completely solved the deflection for feature 1. The most important component of this part of the problem is that the force is applied PARALLEL not perpendicular to the beam like usual problems. This changes up the equations and how to approach the problem completely. For example, to solve for parts of the beam that does not have any moment or force applied, I had to take the derivative of the 
+Next, I symbolically solved and then completely solved the deflection for feature 1. The most important component of this part of the problem is that the force is applied PARALLEL not perpendicular to the beam like usual cantilever beam problems. This changes up the equations and how to approach the problem completely. For example, in a simple cantilever beam problem, you would use (1/3) in M*L^2/(3EI) (this is due to its derivative). However this assumes that M = P * L, but in this problem we set M = P * r (I name r as the distance of the shaft) which means we use a 1/2 instead of 1/3. Also, to solve for parts of the beam that do not have any moment or force applied, I decided to take the derivative of the deflection to give me the slop at the position of the moment to easily find their deflection. Then I added up the discovered deflections to find the max deflection. Since I had found everything but height, the last step was to rearranged my new found equation to solve for it. With a rough result of 9.333mm.
 <img width="5612" height="9846" alt="F1 Deflection" src="https://github.com/user-attachments/assets/91d6bce4-3114-4fcd-9e94-778c49cd68f7" />
 
 ### Yield
-
-<img width="4589" height="11197" alt="F2 Yield" src="https://github.com/user-attachments/assets/1180889c-b9a1-422a-9849-0840ba54dce7" />
+Again, due to the weirdness of the setup for this part of the problem, some parts required further thinking. For example, due to the strange moment and the fact that P applied a normal compressive force, one had to take into account that the max bending compressive stress is further increased by the normal stress while the max bending tensile is decreased due to the applied normal stress. Further more, this normal stress really complicated the solution of this problem since a simple rearrangement for height was not avaiablbe. For that reason I had to bring out the classic quadratic formula to solve for height. In the end, the height was calculated to be about 5.55mm
+<img width="5173" height="19309" alt="F11111111111111 Yield" src="https://github.com/user-attachments/assets/1af76556-c73d-4844-b86f-1b9e39cc51a5" />
 
 ### Which had the larger height?
-Unsurprisingly, deflection increased and the height almost double of yield. The length was just significantly more and plastics are not the greatests for this sort of application.  
+Unsurprisingly, deflection far surpassed yield as seen by the height almost doubling the height result found for yield. The length is relatively long for this sort of setup. I tried to reduce the deflection as much as possible by trying all three given plastics, however none have a great modulus of elasticity for this sort of application with no supports (as will be shown later).
 
 ## Feature 2
+Feature 2 is far simpler to solve considering it is a classic cantilever beam problem with b already solved for.
 ### Knows and Unknowns
+The knowns and unknowns for feature 2 are very similar to feature 1, also, I am able to use some of the results found for feature 1 for 2's calculations. Specifically, both features share the same base due to how they are connected to one another. Also, I can use feature 1's height to define the beam that I will be calculating next. Furthermore, I am now given the diameter of the holes that will be crucial to solve for the length
 <img width="5247" height="12628" alt="Knows 22222222222" src="https://github.com/user-attachments/assets/c6d94906-c61c-423d-8e78-a0910a743274" />
 
 ### Figuring Out Length
-[This article](https://protoplastics.com/designing-plastic-parts-guide/) says to make screw distances from plastic edges to be 2x the diameter of the screw
+[This article](https://protoplastics.com/designing-plastic-parts-guide/) says that screw distances from plastic edges should be 2x the diameter of the screw. This is the key to how I solve the length. All in great detail below. This gives be the length of the beam that I will be calculating
+
 
 <img width="5370" height="14036" alt="f2 LENGTH" src="https://github.com/user-attachments/assets/da0001a8-3166-468d-8a8d-2763d18944de" />
 
 ### Deflection
+
 <img width="4846" height="9576" alt="f2_maxDef" src="https://github.com/user-attachments/assets/ac40e448-aff4-4f73-8b95-311ce35a8c48" />
 
 ### Yield
@@ -133,7 +137,14 @@ All, I had to do now was add a fillet. I had no time left to research an appropr
 <img width="2546" height="1548" alt="10" src="https://github.com/user-attachments/assets/160031a5-22ad-4ce9-ba7c-13cfc7774344" />
 
 ### The Finished Model
-[Here is a picture of the finished model, Followed by all the files I used to create it.](https://drive.google.com/file/d/16o2YxqmDvwLovTEjgNi4sFD1KbKqM24B/view?usp=drive_link)
+[Here is a download of the finished model, Followed by all the files I used to create it.](https://drive.google.com/file/d/16o2YxqmDvwLovTEjgNi4sFD1KbKqM24B/view?usp=sharing)
+
+## Drawing of Model
+
+[drawing.pdf](https://github.com/user-attachments/files/32359116/drawing.pdf)
+
+
+<img width="2086" height="1465" alt="drawing" src="https://github.com/user-attachments/assets/48b0277c-f8cc-47fe-b5da-671e1f86fa38" />
 
 
 
@@ -153,12 +164,3 @@ All, I had to do now was add a fillet. I had no time left to research an appropr
 
 
 
-
-
-
-
-
-
-
-
-In order to add fillet I have to save the assembly as a part. This will lose the equations, so I will give every single part and assembly file attatched.
