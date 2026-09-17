@@ -18,6 +18,8 @@ To start, I wrote down every known and unknown that will likely be necessary to 
 ### Figuring Out Length and Base
 Next, in order to solve I had to calculate the lengths I needed to solve these equations. I extensively wrote my explanations in my notes below. Due to lack of time, I decided on 10mm gap. Also decided to give all edges surrounding motor 5mm gaps, to minimize creating as much height as possible
 
+<img width="5369" height="26451" alt="F1_ Length and Base" src="https://github.com/user-attachments/assets/a73ec022-6093-42dc-9216-1bcc0a37b0e1" />
+
 
 
 ### Deflection
