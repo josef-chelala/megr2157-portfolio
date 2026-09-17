@@ -1,8 +1,4 @@
-# A4 – [Topic]
-
-## Objective
-
-
+<img width="5612" height="9846" alt="F1 Deflection" src="https://github.com/user-attachments/assets/ed0d0b4c-08bc-4e3c-9f75-9ba45f040be4" /># A4 – Motor Mount
 
 ## Given Resources 
 
@@ -17,30 +13,41 @@ The only way to solve these problems is to pick reasonable length and then pick 
 ## Feature 1
 ### Knowns and Unknowns
 To start, I wrote down every known and unknown that will likely be necessary to use to solve for the cross sectional area of feature via yielding and deflection.
+<img width="5302" height="14234" alt="Knows 1" src="https://github.com/user-attachments/assets/30c70685-37a8-4221-aef8-606580b03f2c" />
 
-### Figuring Out Length
+### Figuring Out Length and Base
 Next, in order to solve I had to calculate the lengths I needed to solve these equations. I extensively wrote my explanations in my notes below. Due to lack of time, I decided on 10mm gap. Also decided to give all edges surrounding motor 5mm gaps, to minimize creating as much height as possible
+
 
 
 ### Deflection
 Next, I symbolically solved and then completely solved the deflection for feature 1. The most important component of this part of the problem is that the force is applied PARALLEL not perpendicular to the beam like usual problems. This changes up the equations and how to approach the problem completely. For example, to solve for parts of the beam that does not have any moment or force applied, I had to take the derivative of the 
+<img width="5612" height="9846" alt="F1 Deflection" src="https://github.com/user-attachments/assets/91d6bce4-3114-4fcd-9e94-778c49cd68f7" />
 
 ### Yield
 
+<img width="4589" height="11197" alt="F2 Yield" src="https://github.com/user-attachments/assets/1180889c-b9a1-422a-9849-0840ba54dce7" />
 
 ### Which had the larger height?
 Unsurprisingly, deflection increased and the height almost double of yield. The length was just significantly more and plastics are not the greatests for this sort of application.  
 
 ## Feature 2
 ### Knows and Unknowns
+<img width="5247" height="12628" alt="Knows 22222222222" src="https://github.com/user-attachments/assets/c6d94906-c61c-423d-8e78-a0910a743274" />
 
 ### Figuring Out Length
 [This article](https://protoplastics.com/designing-plastic-parts-guide/) says to make screw distances from plastic edges to be 2x the diameter of the screw
+
+<img width="5370" height="14036" alt="f2 LENGTH" src="https://github.com/user-attachments/assets/da0001a8-3166-468d-8a8d-2763d18944de" />
+
 ### Deflection
+<img width="4846" height="9576" alt="f2_maxDef" src="https://github.com/user-attachments/assets/ac40e448-aff4-4f73-8b95-311ce35a8c48" />
 
 ### Yield
+<img width="4589" height="11197" alt="F2 Yield" src="https://github.com/user-attachments/assets/57ba8da3-0f2a-4e56-9a29-17ac2fed69fa" />
 
 ### Which had a larger height?
+Completely unsurprising, the yield had a far larger height than deflection. This is becasue the length that wasn't attached to the wall was incredibly strong. 
 
 ## CAD Design
 ### Drawing
