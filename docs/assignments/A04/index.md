@@ -1,4 +1,4 @@
-<img width="5612" height="9846" alt="F1 Deflection" src="https://github.com/user-attachments/assets/ed0d0b4c-08bc-4e3c-9f75-9ba45f040be4" /># A4 – Motor Mount
+# A4 – Motor Mount
 
 ## Given Resources 
 
