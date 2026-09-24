@@ -1,4 +1,4 @@
-# A5 – [Topic]
+# A5 – Bracket Design
 ## Choices
 ### Choice of Material
 [Using this data sheet for astm A36 steel from Matweb](https://www.matweb.com/search/DataSheet.aspx?MatGUID=d1844977c5c8440cb9a3a967f8909c3a), I found that young's modulus was 29,000,000 psi (2.9 * 10^(7) psi) and the yield strength is 36,300 psi. Just looking at the young's modulus tells me that deflection will not be an issue.
