@@ -63,6 +63,7 @@ The last thing I learned is that I need to find a way to make sure files back up
 
 As discussed in my Parametric Equations section, I added both stress and deflection equations to solve for the diameter of section A. I used multiple user set variables that would plug into those equations. I then set an if statement that would set the diameter of the section to one of the two equations that gave a bigger diameter. Now, this bracket is very small and is made out of steel, so it is of no surprise that it would take significant "lengths" for deflection to even be needed to be considered. So I only used stress and obiously that if statement would constant have stress winning.
 
+
 ## Link
 ### Parametric Equations for Link
 Below is the parameters and equations I used to make the link. Notice that I built the width of the rectangle along the bigger, 1 inch diameter. This is because it has the smallest cross sectional area at the horizonal 1 inch diameter in the entire link. The normal stresses have to calculate at this point, or else the part will not be at the desired factor of safety. Furthermore, I made the thickness of the link smaller than the chocked section A length, or it would not have full connection with the bracket. Lastly, I used the RC2 fits for the hole connected to section A in order to get a running fit.
@@ -90,6 +91,8 @@ After this lab, I feel I finally understood how to work with fits. While with th
 
 The differing fits requirements shown through the ranges of tolerance show how tightly packed and therefore how much movement is allowable between a hole and shaft in a fit.
 
+## Total Time
+Sadly, this project took me about 10 to 11 hours. The reason is that I had crashes twice that wiped hours of work, and I had to redo and learn the fit sections in order to have better dimensioned drawings
 
 ## Downloadable Models and Drawings
 [You can download this zip that contains all models, drawings, and a high quality PNG of the drawings here
