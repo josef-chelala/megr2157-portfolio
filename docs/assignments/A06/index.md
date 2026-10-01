@@ -65,7 +65,7 @@ As discussed in my Parametric Equations section, I added both stress and deflect
 
 ## Link
 ### Parametric Equations for Link
-Below is the parameters and equations I used to make the link. Notice that I built the width of the rectangle along the bigger, 1 inch diameter. This is because it has the smallest cross sectional area at the horizonal diameter in the entire link. 
+Below is the parameters and equations I used to make the link. Notice that I built the width of the rectangle along the bigger, 1 inch diameter. This is because it has the smallest cross sectional area at the horizonal 1 inch diameter in the entire link. The normal stresses have to calculate at this point, or else the part will not be at the desired factor of safety. Furthermore, I made the thickness of the link smaller than the chocked section A length, or it would not have full connection with the bracket. Lastly, I used the RC2 fits for the hole connected to section A in order to get a running fit.
 ![Inserted Picture](Pictures/link-1.png)
 ### Creation of the General Shape of the Link
 I simply made a rectangle, then created arcs that connected to each edge of the rectangle. Since the base and diameter of the arcs were the same, I just had to make the rectangles base equal to the diameter, plus make its length the center to center of the arcs. Then I extruded it to my chosen .25 in thickness.
@@ -77,6 +77,8 @@ Since the arcs would be concentric to the milled holes, I simply just had to mak
 ![Inserted Picture](Pictures/link-5.png)
 ### Finished Link
 Simply created and calculated.
+
+
 ![Inserted Picture](Pictures/link-6.png)
 ### Drawing of the Link
 Again, I recommend right clicking the image and opening it in a new tab.
@@ -86,7 +88,7 @@ Again, I recommend right clicking the image and opening it in a new tab.
 ## Link Reflection
 After this lab, I feel I finally understood how to work with fits. While with the bracket we only worked with one object we created, I was able to learn how to make section A from the bracket I made work with a fit in the link I created. Last week I was unable to do so, however, after some more detailed reading of the book it finally clicked. One thing that I found interesting buck quickly understood is that as a hole/shaft diameter increases, so does the range of the tolerances. The reason is that errors in manufacturing have a higher chance of happening as size increases and this effect is additive. However, as I have (briefly) read, this isn't necessarily terrible because the increase in size and tolerance are not linearly proportional. So as dimensions increase, tolerance increase but at a slower rate. Meaning tolerances get easier as size increases.
 
-The differing fits shown through the ranges of tolerance show how tightly packed and therefore how much movement is allowable between fits.
+The differing fits requirements shown through the ranges of tolerance show how tightly packed and therefore how much movement is allowable between a hole and shaft in a fit.
 
 
 ## Downloadable Models and Drawings
