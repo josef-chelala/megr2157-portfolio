@@ -2,6 +2,13 @@
 
 ## Main Choices
 SolidWorks and SolidWorks Simulation will be the programs used.  
+SF goal = 4
+Force = 2 * 800 lbf 
+Material = A36 steel
+Yield = 36300 psi
+Young = 2.9*10^7
+Max deflection = .005 in
+
 
 ## First Outer Loop
 ### Weight of the Bracket
@@ -354,6 +361,7 @@ The safety factor was found to be 2.2355
 
 ### Second Inner Loop
 #### Number of Mesh Elements
+Seems there was a massive increase as this mesh has 10154
 
 
 
@@ -388,6 +396,7 @@ Although this was technically a failure of bringing the model under the given sa
 
 
 ## Final Results
+<img width="2539" height="835" alt="image" src="https://github.com/user-attachments/assets/3a85640b-0f7f-4dab-a7b2-e52787fb939d" />
 
 
 
