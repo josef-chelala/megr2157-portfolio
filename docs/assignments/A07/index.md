@@ -10,7 +10,7 @@ The initial iteration of the bracket is found to be 1.087 pounds. This was found
 <img width="1745" height="1657" alt="image" src="https://github.com/user-attachments/assets/eb230bae-c3bf-43d5-9c91-cc227696acbc" />
 
 ### Shared Preprocessing
-The only changes in the preprocessing for every outer loop's second and third inner loop from their respective first inner loop are the mesh density settings, for that reason I will not repeat the loading and constraints sections for each second and third outer loops. Actually, each outer loops first inner loop will be seen to be essential the same as one another. The preprocessing choices are basically the same throughout all outer loops due to how I made edits. For that reason I will give the main, detailed explanations for the process of preprocessing used for every section in the very this very first inner loop. Afterwards, I will give a lite summary and show a gif of the process for each first inner loop.
+The only changes in the preprocessing for every outer loop's second and third inner loop from their respective first inner loop are the mesh density settings, for that reason I will not repeat the loading and constraints sections for each second and third outer loops. Actually, each outer loops first inner loop will be seen to be essential the same as one another. The preprocessing choices are basically the same throughout all outer loops due to how I made edits. For that reason I will give the main, detailed explanations for the process of preprocessing used for every section in this very first inner loop. 
 #### Loading
 ##### Setting Up the Application Area
 In order to apply the load to the bracket correctly, the distributed force needs to be applied to the top half of the cylinder (called Element A in A5). To do so, I created a plane tangent to the top of the cylinder. Then I created a sketch that outlined the top half of the cylinder
@@ -18,12 +18,12 @@ In order to apply the load to the bracket correctly, the distributed force needs
 ##### Creating the Application Area
 In order to create the applied force area using the sketch that was just made, the split line tool will be used. In this case, I will use the sketch to project a "cut" onto the cylinder. In this situation, the cut doesn't affect the simulation and just makes it possible to apply the force more accurately. 
 
-{Inner_Loop_One-1.gif here}
+![Inserted Picture](Pictures/1.gif)
 
 ##### Applying the Load
 Creating the load is a multistep process. In SolidWorks, the first step is to choose the "Force" option under "External Load Advisor" at the top of the screen in SolidWorks Simulation. Next, I chose the newly created area I made as the area where the force will be applied. Then, I selected the "Selected Direction" option instead of the "Normal" option. Normal would make the force be constantly applied towards the center of the cylinder, this is incorrect. Since the two sides of the strap wrapped around the cylinder are being pulled straight down, most of the forces being applied in ever little piece of the selected area actually pointing down as well. Also, I chose 800lbf in A5, but since each side of the strap is pulling it, it is actually 1600lbf that I need to use. To emulate this with Selected Direction, I selected the previously made plane, changed the unit system to IPS, chose the perpendicular to plane direction for the force, and then reversed the direction since it was facing the long way. This setup the force to be applied in the right way and direction.
 
-{Inner_Loop_One-2.gif Here}
+![Inserted Picture](Pictures/2.gif)
 
 #### Constraints
 SolidWorks Simulation requires constraints in all xyz directions in order to even run a simulation. While Elements E and D will show constraints in two directions, that still leaves one left (the "forward/backward" direction). Since the bracket is attached to the beam via a fit, I decided that I would add a constraint of this last direction to all parts of the bracket that would be in direct contact with the rigid I beam once the force is applied (which ends up being just E and D). Furthermore, I will be selecting which elements act as fixtures based on how they would stop from being moved if the load at element A were to increase in lbf over time. Since the I beam is considered rigid its considered fixed, this would mean that the bracket would overall move downward once a great enough force to overcome the material's properties was applied due to how elastic displacement works. The material in contact with the fixed point has no displacement, while the free end does. As seen in elements D, it also stops it from moving inward towards the center of the bracket.
@@ -35,7 +35,7 @@ As a quick note, there are two types of element in this project, one type are th
 ###### Adding the E Fixtures
 To add the fixture, I selected "Advanced Fixtures" under the "Fixture Advisor" tree at the stop of the screen. Then in the blue box which defines what surfaces are fixtures, I clicked the first E element surface that would be in contact with the beam. Next, I clicked the pink box which defines a "plane", that will be used to define the directions of the fixture, and selected the same surface I just clicked. Back to the blue box, I also selected the equivalent surface for the other E element since they share the same setup for the fixture. After scrolling down the fixture menu, I selected the "Normal to Plane" button which adds elements Es' vertical fixtures and the "Along Plane Direction 2" which adds the fixture for forward and back. With that, both Element Es are now constrained. 
 
-{Inner_Loop_One-3.gif Here}
+![Inserted Picture](Pictures/3.gif)
 
 ##### At the D "Elements"
 The interaction between element D and the rigid beam is not as obvious. The interaction between the two is mostly the I beam reacting to the bending of D caused by the forces at element E (obviously the original force at element A as well) since they are offset from D. While not the full picture and not fully accurate, this causes the I beam to fight back against Ds bending with reactive "moments". The beam has essentially blocked the sides of element D in contact with the beam to overall not be able to move "left and right", translating to the entire bracket to essential treat these parts of element D like a fixture in the left and right direction. The types of fixtures that can be added in SolidWorks is very limited, I would try to add a more accurate fixture that would follow the actual phenomenon happening here, but I will just treat their fixture type like with element E. Lastly, same as element E, D will also be in constant contact with the I beam. Therefore I will also give it a fixture in the forward/backward direction.
@@ -44,7 +44,7 @@ The interaction between element D and the rigid beam is not as obvious. The inte
 ###### Adding the D Fixture
 The setup for fixtures at D are basically the same as what was done for the E elements. With the only difference being that the surfaces of the D elements in contact with the I beam will used for the fixture and plane. Seen below.
 
-{Inner_Loop_One-4.gif Here}
+![Inserted Picture](Pictures/4.gif)
 
 ##### What About the Other Surfaces in Contact With the Beam?
 When inspecting the contact between element C and the vertical sides of both elements E with the rigid I beam it appears they are in a different situation. It can be noticed that as an increase of loads are applied at A, they will likely move the beam during displacment (or fracturing) in a direction that would not cause meaningful contact with the beam and these sections of the element. Those surfaces of E would actually just move, if at all, away from the I beam since E would bend outward and away from the beam if an extreme enough force was applied or would just simply break off from the rest of the bracket. For element C, once a force overpowers the material, element C would move downward. Furthermore, this would mean that they do not have continuous contact with the beam. For these reasons, I will not treat these surfaces as fixtures.
@@ -56,12 +56,12 @@ When inspecting the contact between element C and the vertical sides of both ele
 ##### Creation of the Mesh
 Creating a mesh in SolidWorks Simulation is very straight forward. To create it, at the bottom of the property manager in the bottom left side of the screen, right click on "Mesh". Then click on "Create Mesh" in the list of the popup, this takes you to the mesh parameters screen. The mesh density section decides on how many elements (quality of the mesh) that will be used, with coarse being the lowest amount of elements and fine having the highest amount of elements. For this assignment, I will use coarse for the first inner loop, the middle for the second, and fine if a third is necessary. Since this is a first inner loop, I set it to coarse. With that selected, one just has to hit the green checkmark and the program will create the mesh. After some time, the mesh of the model made up of triangle will pop up
 
-{Inner_Loop_One-5.gif Here}
+![Inserted Picture](Pictures/5.gif)
 
 ##### Number of Elements in a Mesh
 To find the number of elements in a mesh, it starts again by right clicking on "Mesh" at the bottom left of the screen and then clicking on "Details" in the pop up. This will show a table of different stats and information of the created mesh. The row labeled "Total Elements" is what is needed. For this mesh in particular, it has 1,352 elements.
 
-{Inner_Loop_One-6.gif Here}
+![Inserted Picture](Pictures/6.gif)
 
 #### Computation
 In SolidWorks, running the study that will give the needed the results is literally a press of the button. To run it, you just have to click "Run This Study" at the top of the screen. Then the program will run, taking time based on how dense the mesh is
@@ -70,7 +70,7 @@ In SolidWorks, running the study that will give the needed the results is litera
 ##### Adjusting the Units and Displaying the Max
 By default, after a study is run, SolidWorks gives the FEA results for stress and displacement. The only changes that need to be made to these are the units for this project since it gives SI units by default. The process is the exact same for ever result section. Using this stress results as an example, to change the units and show the max stress, the first step is to right click on the "Stress" results found at the bottom left of the screen and click on "Edit Definitions" found in the pop up. In the menu that pops up and under display, the unit of measurement can be changed. Since the max yield stress for steel is 36,300 psi and general the max stresses will be in the thousands of psi, I decided to change the unit to ksi to make it more readable. Afterwards click on the chart options tab, there is a check box to make the results display the max stress on the model itself. Lastly, I like to change how the data is displayed by clicking on the unit display selection box (default at scientific) at the bottom left to floating and under that I change the number of decimal places to 4. That makes data way more digestible. Finally, one just needs to click on the green checkmark. This process is the same for other type of data results, except with a different type of units and changing the unit display to general. For displacement I changed it to inches as an example.
 
-{Inner_Loop_One-8.gif Here}
+![Inserted Picture](Pictures/7.gif)
 
 ##### Max Stress
 The results were expected to be bad, but it came out far worse then expected. The max stress was 111.6936 ksi (111,693.6 psi). Unsurprisingly, since this is a lever, the worst stresses were located at center of element B near the point where it connects with element A since that is where the lever has the max length before increasing its cross sectional area.
@@ -86,7 +86,7 @@ Unsurprisingly, the max displacement was also bad. The results show a max displa
 ###### Adding the Safety Factor Results
 SolidWorks does not add the Safety Factor results by default. To do so, right click the where it says "Results" at the bottom left of the screen and select "Define Factor of Safety Plot" in the popup, then just hit the checkmark button. I also changed the chart display to show the results in floating instead of scientific notation for easier readability
 
-{Inner_Loop_One-9.gif Here}
+![Inserted Picture](Pictures/9.gif)
 
 ###### Results
 The results for the factor of safety seems to look insanely bad, but it really is not completely awful. The max factor of safety actually displays parts of the model that are furthest away from max displacement and yield stress. In reality, the min is what is being looked for. In this case, the results show the worst factor of safety to be .325 found near the same place as the max stress. 
@@ -238,15 +238,21 @@ Running these numbers through the excel sheet found similar results (and percent
 
 ### Third Inner Loop
 #### Number of Mesh Elements
-This mesh came out as 
-
+The fine mesh came out with a total of 93,190 elements.
 
 #### Computation
 ##### Max Stress
-In strange turn of events, the max stress seemed to diverge completely, now sitting at 
+In strange turn of events, the max stress seemed to diverge completely, now sitting at 19.1856 ksi at at the top internal corners of the bracket.
+<img width="1119" height="1225" alt="image" src="https://github.com/user-attachments/assets/de52dfeb-3538-4368-ae1d-01c6317078ae" />
+
 ##### Max Displacement
+With max displacement, it seems that it barely changed from the second loop including the location, now sitting at 0.000764 inches. 
+<img width="1155" height="1237" alt="image" src="https://github.com/user-attachments/assets/bb440c3e-e183-4823-81e2-68e6d8782e81" />
+
 
 ##### Safety Factor
+For the Factor of Safety, it is now at 1.89.
+<img width="1125" height="1095" alt="image" src="https://github.com/user-attachments/assets/7ecaebc5-4f7f-4f4f-8e2b-eb99d0d99761" />
 
 ###### Where is the bad factor of safety focused?
 SolidWorks Simulation has a "Iso Clipping" Tool that allows me to only show sections of the model for a range of data like max stress and the Factor of safety. I decided to see if this issue was localized or spread throughout. It turns out that any factor of safety below the desired 4 is actually highly localized in specific areas. 
@@ -267,9 +273,28 @@ It seems that all the major stress is mostly located in the inner corners of the
 
 ### Edits
 #### Getting Rid of the Element A Length
-For a reason that will soon be clear, I decided that I will get rid of the length for element A near completely. To do so Just had to go back to the parametric equation and set the length to zero. Well, actually if it is set to zero then the model completely breaks, to bypass it I added a significantly small length that should have no meaningful affect.  
+For a reason that will soon be clear, I decided that I will get rid of the length for element A near completely. To do so Just had to go back to the parametric equation and set the length to zero. Well, actually if it is set to zero then the model completely breaks, to bypass it I added a significantly small length that should have no meaningful effect.  
 <img width="1953" height="1395" alt="image" src="https://github.com/user-attachments/assets/7ed93c2c-777a-48eb-9c73-785c3d02a122" />
 
+#### Cutting Out the Excess Material
+For this part, I essentially made a sketch and eyeballed a trace of above 2 ksi limit. Although I kept the top part of element C and the bottom of A to not risk increasing displacements or stability. I also left the bottom of E just to keep the general shape. Then I just cut all the way through.
+<img width="1191" height="1243" alt="image" src="https://github.com/user-attachments/assets/236d580e-64cc-4044-ae05-31e2585ddfa0" />
+<img width="1113" height="1221" alt="image" src="https://github.com/user-attachments/assets/251da97d-ff21-410e-89d4-a3e6ac1decbb" />
+
+#### Cutting to Allow the Strap to Pass Through
+To substitute for the .125 in length from before, I decided I would create a guide for the strap to move through and make the path circular. In my mind, I am hoping that this might help fight against stress concentrations that were located in the area earlier. Having curves instead of sharp corners. TO do so, I simply traced the top of element A and offset it by .1 inch instead of .125 inch this time. Then I cut extruded it up to the both A elements.
+<img width="1231" height="1253" alt="image" src="https://github.com/user-attachments/assets/7ec579f1-b907-464c-8208-305fbccf2f2d" />
+<img width="593" height="1255" alt="image" src="https://github.com/user-attachments/assets/bafa6fac-e39c-438e-a9e6-ee091299e34e" />
+#### Filleting Connections between A, B and C
+To reduce the stress concentrations at the sharp edges and corners I saw earlier at the connections between elements A, B and C, I decided to just add a bunch of fillets. I even did the pass through I just made since it seemed to not disturb the path.
+<img width="1347" height="957" alt="image" src="https://github.com/user-attachments/assets/c900aa18-06e7-41a1-ad93-3742838ff600" />
+#### A Futile Attempt 
+Lastly, as an attempt to reduce the stresses found at the internal corners where the bracket and I beam connect, I decided to just add more material on the outside of those. I simply just created boxes of material around those areas. Also, to try to make it more pleasant looking (which also reduces the material a tiny amount) I filet the boxes.
+<img width="845" height="1151" alt="image" src="https://github.com/user-attachments/assets/fd94adb2-9cfa-4fd5-832d-154835c6ef40" />
+<img width="1431" height="1157" alt="image" src="https://github.com/user-attachments/assets/ab6eb62e-ce74-4b89-b155-96831f606fba" />
+#### Finished Result
+Interestingly, it came out looking easy on the eyes
+<img width="749" height="831" alt="image" src="https://github.com/user-attachments/assets/ea1ac8a5-4875-4e89-893d-bb78ed9d60b5" />
 
 
 
@@ -291,21 +316,36 @@ For a reason that will soon be clear, I decided that I will get rid of the lengt
 
 
 
-## Second Outer Loop
+
+
+
+
+
+
+
+## Third Outer Loop
 
 ### Weight
-Since I only added material in the first edit, the weight increased to 1.330 pounds.
+Overall, the weight decreased to 0.813 pounds
 ### First Inner Loop
 #### Number of Mesh Elements
+For the first loop, the mesh has	3,339 elements
 
 
 
 #### Computation
 ##### Max Stress
+Immeditely it appears that the attempt to keep the reductions in max stress has failed, the max stress is 16.22 ksi and is located at the edge of the inside fillet between element A and B
+<img width="1173" height="1211" alt="image" src="https://github.com/user-attachments/assets/968dbfb1-a50c-4cb3-a703-d6f6178ef900" />
 
 ##### Max Displacement
+However, it seems that displacement is essential the same as outer loop two, with a 0.000720 in displacement an at the same location as the second outer loop
+
+<img width="1083" height="1245" alt="image" src="https://github.com/user-attachments/assets/a6bc8026-f0ab-4447-985a-6690830434fe" />
 
 ##### Safety Factor
+The safety factor was found to be 2.2355
+<img width="1073" height="1017" alt="image" src="https://github.com/user-attachments/assets/c8ad031a-5183-424b-8a43-ee7e1f674100" />
 
 
 
@@ -319,39 +359,35 @@ Since I only added material in the first edit, the weight increased to 1.330 pou
 
 #### Computation
 ##### Max Stress
+In a very strange twist of fate, the max stress decreased on this second loop. In the months since I first learned to use simulation, I never had this occur when increasing the quality of the mesh. This has shattered my understanding of how the mesh works. The max stress is 15.4152 ksi, located at the same location as the last inner loop.
+<img width="1119" height="1129" alt="image" src="https://github.com/user-attachments/assets/71cbd15c-a516-4763-8ccb-67efb98253ba" />
 
 ##### Max Displacement
+Still in the same location, the max displacement is 0.000736 inches.
+<img width="933" height="887" alt="image" src="https://github.com/user-attachments/assets/ba2e8301-d550-4b2a-b8ec-6cfe196b2475" />
+
 
 ##### Safety Factor
+Finally the factor of safety is 2.3522
+<img width="1223" height="1081" alt="image" src="https://github.com/user-attachments/assets/361097ae-8d84-499e-8163-3f50f2927d94" />
 
 
 ### First and Second Loop Convergence
+In a strange twist of events, everything was below the convergence threshold of  7%
+<img width="1393" height="299" alt="image" src="https://github.com/user-attachments/assets/93e6e538-4a40-4b6a-85fc-854136869472" />
+
+ 
 
 
-### Third Inner Loop
-#### Number of Mesh Elements
 
-
-
-#### Computation
-##### Max Stress
-
-##### Max Displacement
-
-##### Safety Factor
-
-
-### Second and Third Loop Convergence
-
-
-## Outer Loop Two Data Interpertation
 ### Analysis 
+Although this was technically a failure of bringing the model under the given safety factor.  At first look it seems like the edits were a complete failure, but this is not the case. When limiting the factor of safety date for the second inner loop to show only parts of the model above the 4 factor of safety, it shows that only small parts of the model were actually above it, and two of those sections are questionable. When looking the areas connecting elements A, B, and C, they seem to be around the edges of the fillets. This may be good news, since after some tweaking, it may be possible to bring this specific part of the model under the factor of safety. The problem with the top corners of the model, however, is the fact that the fixtures are not actually what is happening at those points. In a sense, it is as if the beam is literally grabbing onto the bracket it self instead of just blocking it from bending inward. As an example, at the top edge connecting E and C, it may actually slightly bend outward away from the beam, but in the simulation is it completely stopped from bending that way since it is being held on too. My theory is either this, or something similar is cause a stress spike at that inner corner.
+<img width="1807" height="1277" alt="image" src="https://github.com/user-attachments/assets/a6c250f5-4a98-414c-aaf6-f735e1179beb" />
 
 
 
 
-
-
+## Final Results
 
 
 
@@ -359,12 +395,14 @@ Since I only added material in the first edit, the weight increased to 1.330 pou
 
 
 ## Lessons Learned
-Math we used is highly inaccurate, however may be a good basis, but so off it is questionably useful
-Simulation is useful but flawed, hard to tell if a extreme stress point is real or a strange error
+### Calculations from A5
+To start, the math we used for A5 was highly inaccurate. Section B, C, and E were way off since they either did not take into considerations things like bending caused by previous elements or just simply being wrong on how to approach it. One can argue this could just be used as a basis, but the first outer loop shows it was not just wrong, but incredibly wrong by being 3 times over the yield strength for A36 Steel.
+### Flaws in Simulation
+Another thing I learned is that standard engineering simulations can be useful but are flawed for the layman. More specifically, it is hard to tell if a extreme stress point is real or a strange error as seen in the outer loops 1 and 2
 
-Max Stress and FOS seem to go hand in hand in simulation. Although as mesh increases, these increase, but the opposite for max deflection
 
-
+### Time Commitment
+Due to errors when trying to figure this project out and over writing the first part of this project, this took me about 15 hours to complete.
 
 
 
