@@ -85,7 +85,7 @@ The results were expected to be bad, but it came out far worse then expected. Th
 
 
 ##### Max Displacement
-Unsurprisingly, the max displacement was also bad. The results show a max displacement of .061437 inches at the bottom tip of element A, this could be slightly noticeable but still far passes what was needed. The location is of no surprise, I am certain it will always be the furthest point from the 
+Unsurprisingly, the max displacement was also bad. The results show a max displacement of .061437 inches at the bottom tip of element A, this could be slightly noticeable but still far passes what was needed. The location is of no surprise, I am certain it will always be the furthest point from the load ( later I find out this is not true)
 <img width="929" height="1035" alt="image" src="https://github.com/user-attachments/assets/845a54c4-6222-454f-aaf8-83ea15c11d91" />
 
 
