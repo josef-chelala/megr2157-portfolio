@@ -93,22 +93,67 @@ The results for the factor of safety seems to look insanely bad, but it really i
 <img width="815" height="989" alt="image" src="https://github.com/user-attachments/assets/40ec1aa6-2722-4cc8-b084-8bae375d4e28" />
 
 
+
 ### Second Inner Loop
 #### Mesh Preprocessing
 This time, the mesh density dial was moved to the center. After running it, the mesh had 9,293 elements.
 <img width="1224" height="1139" alt="image" src="https://github.com/user-attachments/assets/87bd7dd7-e55d-4270-b262-d1cbbc0049a1" />
 
 
+#### Computation
+##### Max Stress
+For the second run, it seems that the max stress increased further. Now at 130.1098 ksi and at the same place as in the first run.
+<img width="911" height="913" alt="image" src="https://github.com/user-attachments/assets/d5fdf9d8-3d57-43e9-85db-b12e4409f67a" />
+
+##### Max Displacement
+Max displacement also seemed to increase further, although less drastically as it is now at 0.064104 inches. Again, found at the same place as the first run.
+<img width="879" height="977" alt="image" src="https://github.com/user-attachments/assets/000cc16d-07aa-4b1e-8e33-47a1061e3ee2" />
+
+
+##### Safety Factor
+Lastly, it seems that the factor of safety also got worse as well, now sitting at .279. Again, the location is consistent and also appears where the max stress is located. It seems the two are interlinked, and this should makes sense since the factor of safety is equal to the max stress divided by the yield strength. 
+<img width="867" height="915" alt="image" src="https://github.com/user-attachments/assets/a4cead10-fc6b-4d38-a1e9-442c8f7a4464" />
+
+
+### First and Second Loop Convergence
+Now that both the first or second loop are finished, it is time to test the convergence using the equation:
+<img width="1148" height="507" alt="ConvergenceEquation" src="https://github.com/user-attachments/assets/17e367a1-2d27-4bc0-ab7a-ef6ada562469" />
+
+#### Example Using Max Stress 
+Using stress as an example for the convergence equation, the convergence turned out to be 15.23%.
+<img width="2589" height="869" alt="image" src="https://github.com/user-attachments/assets/1ba583c3-ec9d-4462-8d5b-19b7b7ea2ae0" />
+
+#### Using Excel
+The calculations are incredibly simple, so having to write these 10+ times is just a waste of time. For that reasons, I will be using an excel sheet to rapidly calculate it from here on out. I will attach the excel file to my assignment as proof. 
+<img width="1267" height="289" alt="image" src="https://github.com/user-attachments/assets/4cedd25f-a9c0-411f-b672-f2de760b3801" />
+
+#### Convergence Results
+Sadly, it seems that the convergence was not under 7%. This makes sense because the max Stress increased greatly. The professor warned that there could be points on a model that may possibly be an error and does not represent reality so it could be an issue to ignore, however, I do not know how to tell if it is an error and how exactly I can accurately measure "around" it.  Seems factor of safety and max stress do have the exact same convergence. 
+
 ### Third Inner Loop
 #### Mesh Preprocessing
-For the last loop, the mesh density dial was maxed to fine. This resulted in a mesh with a total element count of 66,341. A significant increase! The professor warned that this could be an issue to ignore, however, I do not know how to then accurately measure "around" it. 
-
+For the last loop, the mesh density dial was maxed to fine. This resulted in a mesh with a total element count of 66,341. A significant increase! 
 <img width="1363" height="1281" alt="image" src="https://github.com/user-attachments/assets/8e376ab6-fa15-4881-8e43-966f045a8d59" />
+
+
+#### Computation
+##### Max Stress
+
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+
+### Second and Third Loop Convergence
+Seems that the convergence between stress and the factor of safety increased while the displacement decreased.
+
 
 
 ## Outer Loop One Data Interpertation
 ### Analysis 
-It seems that the biggest problem is that Element A and B seem to create a sort of lever. When the force is applied to A, its creates a moment along the length of B which is more then 1 inch. There are two ways to approach this, drastically decrease the length or to add another element B to the opposite side of the bracket. In the end, I decided to do both. For one, getting rid of the moment should greatly reduce the max stress. For the length, well, the strap given in A5 actually only has a .047" thickness. So a 1 inch gap is absurd. Luckily, I have a parameter for this length and it does not affect the rest of the math and dimensioning, so I can just type in a length for it.
+It seems that the biggest problem is that Element A and B seem to create a sort of lever. When the force is applied to A, its creates a moment along the length of B which is more then 1 inch. There are two ways to approach this, drastically decrease the length or to add another element B to the opposite side of the bracket. In the end, I decided to do both. For one, getting rid of the moment should greatly reduce the max stress. For the length, well, the strap given in A5 actually only has a .047" thickness. So a 1 inch gap is absurd. Luckily, I have a parameter for this length and it does not affect the rest of the math and dimensioning, so I can just type in a length for it. 
 ### Edits
 #### Changing the Length
 Changing the length was incredibly easy since it was a parametric equation I made. I simply changed the length to 1/8th of an inch and hit enter. 1/8th is about 2.5 times the thickness of the strap, more then enough clearance when it is pulling 
@@ -120,11 +165,165 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+## Second Outer Loop
+
+### Weight
+
+### First Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+
+
+
+
+### Second Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+### First and Second Loop Convergence
+
+
+### Third Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+### Second and Third Loop Convergence
+
+
+## Outer Loop Two Data Interpertation
+### Analysis 
+
+### Edits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Second Outer Loop
+
+### First Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+
+
+
+
+### Second Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+### First and Second Loop Convergence
+
+
+### Third Inner Loop
+#### Mesh Preprocessing
+
+
+
+#### Computation
+##### Max Stress
+
+##### Max Displacement
+
+##### Safety Factor
+
+
+### Second and Third Loop Convergence
+
+
+## Outer Loop Two Data Interpertation
+### Analysis 
+
+
+
+
+
+
+
+
+
+
+
 ## Lessons Learned
 Math we used is highly inaccurate, however may be a good basis, but so off it is questionably useful
 Simulation is useful but flawed, hard to tell if a extreme stress point is real or a strange error
 
-Max Stress and FOS seem to go hand in hand in simulation
+Max Stress and FOS seem to go hand in hand in simulation. Although as mesh increases, these increase, but the opposite for max deflection
 
 
 
