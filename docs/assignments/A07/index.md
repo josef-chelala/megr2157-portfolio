@@ -78,7 +78,7 @@ The results were expected to be bad, but it came out far worse then expected. Th
 
 
 ##### Max Displacement
-Unsurprisingly, the max displacement was also bad. The results show a max displacement of .061437 inches at the bottom tip of element A, this could be slightly noticeable but still far passes what was needed.
+Unsurprisingly, the max displacement was also bad. The results show a max displacement of .061437 inches at the bottom tip of element A, this could be slightly noticeable but still far passes what was needed. The location is of no surprise, I am certain it will always be the furthest point from the 
 <img width="929" height="1035" alt="image" src="https://github.com/user-attachments/assets/845a54c4-6222-454f-aaf8-83ea15c11d91" />
 
 
@@ -96,7 +96,7 @@ The results for the factor of safety seems to look insanely bad, but it really i
 
 ### Second Inner Loop
 #### Mesh Preprocessing
-This time, the mesh density dial was moved to the center. After running it, the mesh had 9,293 elements.
+This time, the mesh density dial was moved to the center. After running it, the mesh had 9,293 elements. The meshing setting for each respective 1, 2, and 3 loop will be the same so I will not show this again
 <img width="1224" height="1139" alt="image" src="https://github.com/user-attachments/assets/87bd7dd7-e55d-4270-b262-d1cbbc0049a1" />
 
 
@@ -125,10 +125,12 @@ Using stress as an example for the convergence equation, the convergence turned 
 
 #### Using Excel
 The calculations are incredibly simple, so having to write these 10+ times is just a waste of time. For that reasons, I will be using an excel sheet to rapidly calculate it from here on out. I will attach the excel file to my assignment as proof. 
-<img width="1267" height="289" alt="image" src="https://github.com/user-attachments/assets/4cedd25f-a9c0-411f-b672-f2de760b3801" />
+<img width="1387" height="281" alt="image" src="https://github.com/user-attachments/assets/e9cb4e25-4b92-43d7-bff4-b5450bdc045a" />
+
 
 #### Convergence Results
-Sadly, it seems that the convergence was not under 7%. This makes sense because the max Stress increased greatly. The professor warned that there could be points on a model that may possibly be an error and does not represent reality so it could be an issue to ignore, however, I do not know how to tell if it is an error and how exactly I can accurately measure "around" it.  Seems factor of safety and max stress do have the exact same convergence. 
+Sadly, it seems that the convergence was not under 7% for both max stress and the factor of safety. This makes sense because the max Stress increased greatly. The professor warned that there could be points that increase drastically on a model that may possibly be an error and does not represent reality so it could be an issue to ignore. However, I do not know how to tell if it is an error and how exactly I can accurately measure "around" it, so I will just run it a third time. Also, the factor of safety and max stress do have the exact same convergence percentage. So my theory that they are directly linked is correct. From this data alone, it seems that increasing the mesh worsens everything. Except, it seems that the displacement did converge. Possibly because the displacement is very small?
+
 
 ### Third Inner Loop
 #### Mesh Preprocessing
@@ -138,16 +140,24 @@ For the last loop, the mesh density dial was maxed to fine. This resulted in a m
 
 #### Computation
 ##### Max Stress
+It seems that results do worsen as the mesh gets finer, now the max stress is at 159.8541 ksi. However, something different did occur. Now the max shear stress is located at the two inner corners were element B and C connect, possibly a stress concentration.
+<img width="1135" height="1201" alt="image" src="https://github.com/user-attachments/assets/781e96cb-cc78-48eb-b882-941a54f931d7" />
 
 
 ##### Max Displacement
+Displacement seemed to show a different pattern, there was only a slight difference from inner loop two with a max displacement of 0.06494 inches. Again, the location was at the further point of the fixed sections.
+<img width="869" height="1005" alt="image" src="https://github.com/user-attachments/assets/d0fcd5c6-1e85-48d7-ba9f-623bce18fba2" />
+
+
 
 ##### Safety Factor
+Lastly, as I have learned, that it seems that the factor of safety changed similarly to max stress and at the same exact location. This factor of safety was found to be 0.226828. 
+<img width="909" height="977" alt="image" src="https://github.com/user-attachments/assets/dcf9fc70-b7ac-4394-bbaa-42d7b13e420a" />
 
-
+ 
 
 ### Second and Third Loop Convergence
-Seems that the convergence between stress and the factor of safety increased while the displacement decreased.
+Running the convergence calculations through excel showed some interesting patterns. Still, the max stress and factor of safety did not converge, and it actually got worse as things got finer. Surprisingly, for displacement it not only still converges, the percentage actually decreased further. Seems that the convergence percentages between stress and the factor of safety increase while the displacement decrease as the mesh becomes finer.
 
 
 
@@ -160,8 +170,10 @@ Changing the length was incredibly easy since it was a parametric equation I mad
 <img width="2407" height="1383" alt="image" src="https://github.com/user-attachments/assets/9066b999-6a80-4abc-ab08-a7c740eb99c0" />
 
 #### Adding an Additional Element A
-As stated, I simply need to add another element A to the open end. ALso, to decrease its vertical length to create a smaller moment. Just traced over element A on the other side and extruded it by its same length
-<img width="949" height="1343" alt="image" src="https://github.com/user-attachments/assets/2aeb6b40-c408-4649-918d-cf0620e69d59" />
+As stated, I simply need to add another element A to the open end. I ended up just deciding to trace over the entire bracket on the other side and extruded the same amount as the thickness of element A. It should be noted that all edits going forward that I make will not affect the placement of fixtures, forces, and the like to keep things simple.
+<img width="813" height="1127" alt="image" src="https://github.com/user-attachments/assets/bacc21fe-33b2-422a-a3fa-8040dbcc9d70" />
+
+<img width="1003" height="1143" alt="image" src="https://github.com/user-attachments/assets/45258631-d329-4c69-8673-d373f518f03a" />
 
 
 
@@ -180,60 +192,84 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 ## Second Outer Loop
 
 ### Weight
-
+Since I only added material in the first edit, the weight increased to 1.330 pounds.
 ### First Inner Loop
-#### Mesh Preprocessing
-
-
+#### Number of Mesh Elements
+With this new design, the number of elements for the coarse mesh is 1,289
 
 #### Computation
 ##### Max Stress
+Whelp, the foresight on my design was incredibly correct. The max stress dropped to a whopping 9.5800 ksi. A massive success in bringing the overall stress below the yield strength. Interestingly, it seems that the max stress is located near the edges of the connections between elements A, B, and C. This is likelt
+<img width="1035" height="1009" alt="image" src="https://github.com/user-attachments/assets/b4086849-b4ad-4f94-b270-448acce225da" />
 
 ##### Max Displacement
+Similarly, displacement decreased greatly. It now sits at 0.000722 inches, essentially imperceivable. Now, it seems I was slightly incorrect in saying that displacement will always happen at the further point. The shading does shows something similar, however, the 1600 lbf force added an additional displacement where it contacts with element A. For that reason, the peak displacement is there
+<img width="731" height="1011" alt="image" src="https://github.com/user-attachments/assets/f5f064d6-dcc4-4cee-84ac-3a23e3080876" />
+
+
 
 ##### Safety Factor
-
-
-
-
+Since the factor of safety follows max stress also decreased and is in the same location as the max stress. It was found to be 3.7849.
+<img width="807" height="905" alt="image" src="https://github.com/user-attachments/assets/4f0778ef-3a68-4b3f-ba4b-93a761b2c892" />
 
 
 ### Second Inner Loop
-#### Mesh Preprocessing
-
-
+#### Number of Mesh Elements
+Now at the center between coarse and fine, this mesh has 8,731 elements
 
 #### Computation
 ##### Max Stress
+Increasing the mesh detail also increased the max stress to 11.9275 ksi. Now, the max stress is near the inner corner connecting element D and E. Likely some sort of concentrated mesh. This might be a difficult one to fix since it seems to be in an area I cannot modify.
+<img width="1177" height="1173" alt="image" src="https://github.com/user-attachments/assets/0ba368f7-ddaa-40c4-b025-6d964de0c3b8" />
 
 ##### Max Displacement
+Again, it seems that the displacement further decreased, now at 0.000747 inches, and still in the same location
+<img width="811" height="1077" alt="image" src="https://github.com/user-attachments/assets/921105ad-cb65-488c-9b8b-e4724f8d170d" />
 
 ##### Safety Factor
+Following the max stresses decrease and location, the Factor of Safety is now at 3.04.
+<img width="877" height="877" alt="image" src="https://github.com/user-attachments/assets/5dc3dc3d-e9c1-4409-b0df-5548947521e6" />
 
 
 ### First and Second Loop Convergence
+Running these numbers through the excel sheet found similar results (and percentages) to the first outer loop. The max stress and factor of safety convergence percentage is over the threshold while displacement did not go over. Since some did go over, time to run the last inner loop. It should be noted that only the displacement was below the desired design limits, and by a decent margin away from .005 inches. 
+<img width="1387" height="287" alt="image" src="https://github.com/user-attachments/assets/9845b47b-002c-4960-8bf0-d3fbbad15ffa" />
 
 
 ### Third Inner Loop
-#### Mesh Preprocessing
-
+#### Number of Mesh Elements
+This mesh came out as 
 
 
 #### Computation
 ##### Max Stress
-
+In strange turn of events, the max stress seemed to diverge completely, now sitting at 
 ##### Max Displacement
 
 ##### Safety Factor
 
+###### Where is the bad factor of safety focused?
+SolidWorks Simulation has a "Iso Clipping" Tool that allows me to only show sections of the model for a range of data like max stress and the Factor of safety. I decided to see if this issue was localized or spread throughout. It turns out that any factor of safety below the desired 4 is actually highly localized in specific areas. 
+<img width="1111" height="1183" alt="image" src="https://github.com/user-attachments/assets/baeb9ded-7123-428e-b0f0-1522ec029cd0" />
+
+
 
 ### Second and Third Loop Convergence
+It is absolutely ludicrous the drastic change in convergence that occurred. The max stress/factor of safety is now double than the first inner loop but in a completely different location and the convergence between the second and third loop is nearly 50%. This is in all honesty a mystery to me. Displacement was more consistent with only around a percentage change.
+<img width="2001" height="268" alt="image" src="https://github.com/user-attachments/assets/76e4ee8f-58df-412a-9559-a7f1b2844b0e" />
+
 
 
 ## Outer Loop Two Data Interpertation
 ### Analysis 
+It seems that all the major stress is mostly located in the inner corners of the bracket that interact with the beam, places that major changes can not be made without making changes to the I beam itself, so it maybe a lost cause trying to fix those areas. I will try adding material on the outside surrounding those corners, but it will likely do nothing. Either this is an issue with the limitations of SolidWorks Simulation since all the fixtures act as if the bracket is literally attached to the beam and so it causes this issue. Or this is actually how it acts in real life. This is likely a mix of both. However, major stress areas around the connects between elements A, B, and C can be fixed. Also, it seems that Elements E and C have a huge excess of unnecessary material. Element E is in no way a surprise, as I pointed out and explained in A5, the setup we were expected to use for element E was nonsensical and meant that figuring out what equation to use was rather difficult. I knew the equation would be significantly off, and this simulation shows this clear as that. For that reason I plan to cut most of it off. Now I just need to figure out how to cut as much material as possible. To do so I used the Iso Clipping tool again to show all stresses above a set amount for me to trace around. I honestly had no idea how much, so I decided on 2 ksi.
+<img width="893" height="1223" alt="image" src="https://github.com/user-attachments/assets/ffb60aad-85bb-4c0f-bfed-cc3add30c67f" />
 
 ### Edits
+#### Getting Rid of the Element A Length
+For a reason that will soon be clear, I decided that I will get rid of the length for element A near completely. To do so Just had to go back to the parametric equation and set the length to zero. Well, actually if it is set to zero then the model completely breaks, to bypass it I added a significantly small length that should have no meaningful affect.  
+<img width="1953" height="1395" alt="image" src="https://github.com/user-attachments/assets/7ed93c2c-777a-48eb-9c73-785c3d02a122" />
+
 
 
 
@@ -257,8 +293,10 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 
 ## Second Outer Loop
 
+### Weight
+Since I only added material in the first edit, the weight increased to 1.330 pounds.
 ### First Inner Loop
-#### Mesh Preprocessing
+#### Number of Mesh Elements
 
 
 
@@ -275,7 +313,7 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 
 
 ### Second Inner Loop
-#### Mesh Preprocessing
+#### Number of Mesh Elements
 
 
 
@@ -291,7 +329,7 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 
 
 ### Third Inner Loop
-#### Mesh Preprocessing
+#### Number of Mesh Elements
 
 
 
@@ -308,6 +346,7 @@ As stated, I simply need to add another element A to the open end. ALso, to decr
 
 ## Outer Loop Two Data Interpertation
 ### Analysis 
+
 
 
 
