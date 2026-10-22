@@ -408,7 +408,8 @@ Although this was technically a failure of bringing the model under the given sa
 To start, the math we used for A5 was highly inaccurate. Section B, C, and E were way off since they either did not take into considerations things like bending caused by previous elements or just simply being wrong on how to approach it. One can argue this could just be used as a basis, but the first outer loop shows it was not just wrong, but incredibly wrong by being 3 times over the yield strength for A36 Steel.
 ### Flaws in Simulation
 Another thing I learned is that standard engineering simulations can be useful but are flawed for the layman. More specifically, it is hard to tell if a extreme stress point is real or a strange error as seen in the outer loops 1 and 2
-
+### Prcoessing and Calculations of the FEA
+One thing I learned from this assignment was how much the size and shape of the mesh can affect the results of an FEA simulation. Using a finer mesh can give more detailed and accurate results, especially in areas where stress is concentrated, but it also takes longer for the computer to solve the simulation. I also learned that sometimes simply using the most elements possible is not always the best approach because it can greatly increase the calculation time without making a significant difference in the results as seen the the max displacement results.
 
 ### Time Commitment
 Due to errors when trying to figure this project out and over writing the first part of this project, this took me about 15 hours to complete.
