@@ -21,7 +21,7 @@ In order to create the applied force area using the sketch that was just made, t
 {Inner_Loop_One-1.gif here}
 
 ##### Applying the Load
-Creating the load is a multistep process. In SolidWorks, the first step is to choose the "Force" option under "External Load Advisor" at the top of the screen in SolidWorks Simulation. Next, I chose the newly created area I made as the area where the force will be applied. Then, I selected the "Selected Direction" option instead of the "Normal" option. Normal would make the force be constantly applied towards the center of the cylinder, this is incorrect. Since the two sides of the strap wrapped around the cylinder are being pulled straight down, most of the forces being applied in ever little piece of the selected area actually pointing down as well. To emulate this with Selected Direction, I selected the previously made plane, changed the unit system to IPS, chose the perpendicular to plane direction for the force, and then reversed the direction since it was facing the long way. This setup the force to be applied in the right way and direction. Lastly, I changed the applied load to 800 lbf and hit the green checkmark to finish the load section.
+Creating the load is a multistep process. In SolidWorks, the first step is to choose the "Force" option under "External Load Advisor" at the top of the screen in SolidWorks Simulation. Next, I chose the newly created area I made as the area where the force will be applied. Then, I selected the "Selected Direction" option instead of the "Normal" option. Normal would make the force be constantly applied towards the center of the cylinder, this is incorrect. Since the two sides of the strap wrapped around the cylinder are being pulled straight down, most of the forces being applied in ever little piece of the selected area actually pointing down as well. Also, I chose 800lbf in A5, but since each side of the strap is pulling it, it is actually 1600lbf that I need to use. To emulate this with Selected Direction, I selected the previously made plane, changed the unit system to IPS, chose the perpendicular to plane direction for the force, and then reversed the direction since it was facing the long way. This setup the force to be applied in the right way and direction.
 
 {Inner_Loop_One-2.gif Here}
 
@@ -67,19 +67,20 @@ To find the number of elements in a mesh, it starts again by right clicking on "
 In SolidWorks, running the study that will give the needed the results is literally a press of the button. To run it, you just have to click "Run This Study" at the top of the screen. Then the program will run, taking time based on how dense the mesh is
 <img width="1699" height="1655" alt="image" src="https://github.com/user-attachments/assets/dc617d6d-529d-47ac-a409-054d8200572a" />
 
-#### Data Interpretation
 ##### Adjusting the Units and Displaying the Max
 By default, after a study is run, SolidWorks gives the FEA results for stress and displacement. The only changes that need to be made to these are the units for this project since it gives SI units by default. The process is the exact same for ever result section. Using this stress results as an example, to change the units and show the max stress, the first step is to right click on the "Stress" results found at the bottom left of the screen and click on "Edit Definitions" found in the pop up. In the menu that pops up and under display, the unit of measurement can be changed. Since the max yield stress for steel is 36,300 psi and general the max stresses will be in the thousands of psi, I decided to change the unit to ksi to make it more readable. Afterwards click on the chart options tab, there is a check box to make the results display the max stress on the model itself. Lastly, I like to change how the data is displayed by clicking on the unit display selection box (default at scientific) at the bottom left to floating and under that I change the number of decimal places to 4. That makes data way more digestible. Finally, one just needs to click on the green checkmark. This process is the same for other type of data results, except with a different type of units and changing the unit display to general. For displacement I changed it to inches as an example.
 
 {Inner_Loop_One-8.gif Here}
 
 ##### Max Stress
-The results were expected to be bad, but it came out worse then expected. The max stress was 558,468 psi (55.8468 ksi). Unsurprisingly, the worst stresses were located at center of element B near the point where it connects with element A.
-<img width="1287" height="1347" alt="image" src="https://github.com/user-attachments/assets/bc7a1dc8-f535-4ad8-a4a6-dcdd88cbfca7" />
+The results were expected to be bad, but it came out far worse then expected. The max stress was 111.6936 ksi (111,693.6 psi). Unsurprisingly, since this is a lever, the worst stresses were located at center of element B near the point where it connects with element A since that is where the lever has the max length before increasing its cross sectional area.
+<img width="997" height="1043" alt="image" src="https://github.com/user-attachments/assets/1741ab9d-e6eb-4098-96d1-cbaaef20a5a7" />
+
 
 ##### Max Displacement
-Unsurprisingly, the max displacement was also bad. The results show a max displacement of .030718 inches at the bottom tip of element A.
-<img width="1225" height="1449" alt="image" src="https://github.com/user-attachments/assets/565cfeaa-6824-4620-aba2-f8a96037e7d4" />
+Unsurprisingly, the max displacement was also bad. The results show a max displacement of .061437 inches at the bottom tip of element A, this could be slightly noticeable but still far passes what was needed.
+<img width="929" height="1035" alt="image" src="https://github.com/user-attachments/assets/845a54c4-6222-454f-aaf8-83ea15c11d91" />
+
 
 ##### Safety Factor
 ###### Adding the Safety Factor Results
@@ -88,13 +89,42 @@ SolidWorks does not add the Safety Factor results by default. To do so, right cl
 {Inner_Loop_One-9.gif Here}
 
 ###### Results
-The results for the factor of safety seems to look insanely bad, but it really is not completely awful. The max factor of safety actually displays parts of the model that are furthest away from max displacement and yield stress. In reality, the min is what is being looked for. In this case, the results show the worst factor of safety to be .649 found near the same place as the max stress. 
+The results for the factor of safety seems to look insanely bad, but it really is not completely awful. The max factor of safety actually displays parts of the model that are furthest away from max displacement and yield stress. In reality, the min is what is being looked for. In this case, the results show the worst factor of safety to be .325 found near the same place as the max stress. 
+<img width="815" height="989" alt="image" src="https://github.com/user-attachments/assets/40ec1aa6-2722-4cc8-b084-8bae375d4e28" />
+
+
+### Second Inner Loop
+#### Mesh Preprocessing
+This time, the mesh density dial was moved to the center. After running it, the mesh had 9,293 elements.
+<img width="1224" height="1139" alt="image" src="https://github.com/user-attachments/assets/87bd7dd7-e55d-4270-b262-d1cbbc0049a1" />
+
+
+### Third Inner Loop
+#### Mesh Preprocessing
+For the last loop, the mesh density dial was maxed to fine. This resulted in a mesh with a total element count of 66,341. A significant increase! The professor warned that this could be an issue to ignore, however, I do not know how to then accurately measure "around" it. 
+
+<img width="1363" height="1281" alt="image" src="https://github.com/user-attachments/assets/8e376ab6-fa15-4881-8e43-966f045a8d59" />
+
+
+## Outer Loop One Data Interpertation
+### Analysis 
+It seems that the biggest problem is that Element A and B seem to create a sort of lever. When the force is applied to A, its creates a moment along the length of B which is more then 1 inch. There are two ways to approach this, drastically decrease the length or to add another element B to the opposite side of the bracket. In the end, I decided to do both. For one, getting rid of the moment should greatly reduce the max stress. For the length, well, the strap given in A5 actually only has a .047" thickness. So a 1 inch gap is absurd. Luckily, I have a parameter for this length and it does not affect the rest of the math and dimensioning, so I can just type in a length for it.
+### Edits
+#### Changing the Length
+Changing the length was incredibly easy since it was a parametric equation I made. I simply changed the length to 1/8th of an inch and hit enter. 1/8th is about 2.5 times the thickness of the strap, more then enough clearance when it is pulling 
+<img width="2407" height="1383" alt="image" src="https://github.com/user-attachments/assets/9066b999-6a80-4abc-ab08-a7c740eb99c0" />
+
+#### Adding an Additional Element A
+As stated, I simply need to add another element A to the open end. ALso, to decrease its vertical length to create a smaller moment. Just traced over element A on the other side and extruded it by its same length
+<img width="949" height="1343" alt="image" src="https://github.com/user-attachments/assets/2aeb6b40-c408-4649-918d-cf0620e69d59" />
 
 
 
+## Lessons Learned
+Math we used is highly inaccurate, however may be a good basis, but so off it is questionably useful
+Simulation is useful but flawed, hard to tell if a extreme stress point is real or a strange error
 
-
-
+Max Stress and FOS seem to go hand in hand in simulation
 
 
 
