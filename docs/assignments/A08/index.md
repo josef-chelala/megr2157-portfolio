@@ -1,8 +1,5 @@
 # A8 – Gears
 
-
-
-
 ## Design of the shafts
 ### Input Shaft
 <img width="2944" height="7915" alt="In Shaft Math" src="https://github.com/user-attachments/assets/b41c3e5a-fbbe-4e4d-b570-58231bf1dc7d" />
@@ -111,8 +108,13 @@ I decided for my approach, that I actually would just create the part with in th
 <img width="1253" height="833" alt="image" src="https://github.com/user-attachments/assets/63ec6141-0699-4ec8-aa19-9bb1457f7a0a" />
 
 #### Adding the Flaps
+<img width="945" height="1075" alt="image" src="https://github.com/user-attachments/assets/a1014c7e-42b3-4b99-99d7-14b425934ffa" />
+<img width="895" height="941" alt="image" src="https://github.com/user-attachments/assets/0e9df003-0232-436a-b5ba-79177257a24a" />
+
+#### Adding the Screw and Nut Hole
+<img width="809" height="877" alt="image" src="https://github.com/user-attachments/assets/5f73bad1-aa64-4b58-a49d-e8e3f98b7c1a" />
+<img width="1181" height="1221" alt="image" src="https://github.com/user-attachments/assets/61fa5cf8-c467-499b-9a0c-fc76c171ce0d" />
 
 
-## Lessons Learned
 
 
