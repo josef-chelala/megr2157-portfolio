@@ -116,5 +116,6 @@ I decided for my approach, that I actually would just create the part with in th
 <img width="1181" height="1221" alt="image" src="https://github.com/user-attachments/assets/61fa5cf8-c467-499b-9a0c-fc76c171ce0d" />
 
 
-
+## Assembly Download
+[You can download the assembly here!](https://drive.google.com/file/d/1MgpqHcwHrGuJqGLYPSVf1-m_WJUZkOWU/view?usp=sharing)
 
