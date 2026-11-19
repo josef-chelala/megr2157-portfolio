@@ -375,9 +375,13 @@ In the end, it seems that the original side frames were incredibly overkill and 
 
 ## Lessons Learned
 
-In the end, we learned to run siulations for a 
+In the end, we learned to run simulations for a 
+
+
+## Time
+Josef Chelala : This project took me 10 hours to do. This is mostly due to trial and error with the FEA.
 
 ## Files 
 
 ### Simulation Files
-The simulation files can be found here
+[The simulation files can be found here](https://drive.google.com/file/d/1w2mBpridV1HRKfM6ORor5Sbgo4-X5EOg/view?usp=sharing)
