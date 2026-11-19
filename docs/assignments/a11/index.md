@@ -310,8 +310,49 @@ Once completed, I placed the transverse force of 1.525 lbf found earlier to the 
 
 ###### Max Stress
 
+As seen below, it is quickly noticeable that the forces applied to the side beam are not significant. The maximum stress does not come close to the yield strength of the frame. This is unsurprising, because the top frame experienced far more stress and moments than the side frames. Furthermore, any forces transferred from the top frame to the sides is split in two for each side. As shown and will be shown, this side frame is overkill. For the side frames, the max stress is 2.516 ksi located at the center of where the top frame and side frame connect. 
 
 
+
+<img width="1001" height="1161" alt="image18" src="https://github.com/user-attachments/assets/60ff1665-78ea-453b-920c-fcbf46a7df6c" />
+
+
+###### Load Path
+It seems that the load path is located where the max stress is. Directly down the center. This makes sense because the top frame is not taking the whole space where they connect. So all the force is focused at the contact point
+
+##### Vertical Deflection
+###### Max Deflection
+
+This is where it becomes clear that this frame is extremely overkill. With even less displacement then the top frame, if that was even possible, the max is .0003796 inches. Completely unnoticeable. It is located are the tri connection point between the top frame, side frame, and the bracket. This makes sense because there is a twisting moment happening there as well as the compressive and transverse force.
+
+
+<img width="629" height="1439" alt="image23" src="https://github.com/user-attachments/assets/38dc8f3e-d006-4b93-96b1-b079c6f5a356" />
+
+###### Any Twisting or Warping Tendencies?
+In the same way as the top frame, the forces are just not significant enough to cause any serious twisting or warping. It is like a person trying to twist a steel beam, it simply does nothing. The exaggerated representation seen in the above image is just not a correct. There is simply nothing happening. A fraction of a thin piece of hair is the displacement
+
+##### Factor of Safety
+###### Smallest Factor of Safety
+Following in the same exact pattern as the stresses and displacement. The minimum factory of safety is a whopping 11.124, almost triple the 4 we were hoping for. Since the FoS is interlocked with the max stress, it is located in the same place.
+
+<img width="615" height="1311" alt="image21" src="https://github.com/user-attachments/assets/beb7ee30-7d50-473e-9b87-61ecb9cce66a" />
+
+
+#### Optimization Pass by Cutting the Cost Greatly
+##### Factor of Safety
+###### A Miracle?
+Due to the max stresses and the displacement being extremely small, I decided to reselect the side beam my group mate chose. This time, I selected one with half the width with everything else being the same. After reapplying the exact same forces and fixtures, I found something rather surprising with the factor of safety (which is basically the same result with the Von Misses Stress since they are interconnected). The minimum factor of safety actually tripled further! Now located at the fixture. How is this possible?
+
+
+<img width="1365" height="1245" alt="image" src="https://github.com/user-attachments/assets/3079a7f9-d4c5-4057-b31f-14521b0fd31b" />
+
+
+###### How did this happen?
+
+With great confusion on how the stresses and factor of safety significantly improved, I went back and investigated the original side beams. When limiting the sections of the original side frames to the smallest factor of safety of the new side frame, it turns out the max stresses were occurring in the curved sections of the original. Likely, if those were flat, the max stresses and factor of safety would have been greatly decreased more than the new side frames. 
+
+
+<img width="1457" height="1151" alt="image4" src="https://github.com/user-attachments/assets/cbf340cc-8fcb-4749-917d-be2c25e989f6" />
 
 
 
