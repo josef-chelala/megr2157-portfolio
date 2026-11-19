@@ -1,5 +1,68 @@
 # A11 – Motor Selection
 
+## Motor Selection: EthanKing
+
+A motor was selected based on the torque and speed requirements of the lead screw design. The motor was evaluated to ensure it could handle the maximum axial load of 2 kN throughout the required speed range of 1–50 mm/min.
+
+### Selected Motor
+[McMaster-Carr Motor – Part #6627T117](https://www.mcmaster.com/6627T117/)
+
+### Motor Specifications
+<img width="549" height="627" alt="Screenshot 2026-11-18 213807" src="https://github.com/user-attachments/assets/5ad1d1ad-fd25-4863-abd6-6a44c9d44b32" />
+<img width="998" height="590" alt="Screenshot 2026-11-18 213609" src="https://github.com/user-attachments/assets/af09bf8a-0fd9-43d2-a646-6a0933621549" />
+
+### Torque Verification
+- Maximum Required Torque: **2.93 N·m (2.161 lb-ft)**
+
+The selected motor was checked to ensure it provides sufficient output torque throughout the required operating speed range.
+
+### Speed-Torque Curve
+The motor's speed-torque curve is included below to demonstrate its available torque at different operating speeds.
+<img width="553" height="418" alt="Screenshot 2026-11-18 213218" src="https://github.com/user-attachments/assets/6582c5c2-5e98-4599-8ec8-37cb4d2821a4" />
+
+### Conclusion
+The selected motor satisfies the torque and speed requirements of the lead screw design.
+
+## Motor Mount Bracket Design
+
+A motor mount bracket was designed to securely attach the selected motor to the tester frame. The bracket uses the motor's existing mounting hole pattern and a four-hole pattern to secure it to the top of the frame.
+
+The design maintains alignment with the lead screw, allows access for assembly and maintenance, and provides sufficient strength to withstand operational torque and reaction forces.
+<img width="367" height="721" alt="Screenshot 2026-11-18 214437" src="https://github.com/user-attachments/assets/3e2e1b65-8dc8-4593-b7f9-7b6fef2ba038" />
+
+
+### Final Design
+The final motor mount bracket was modeled in CAD using the calculated thickness and mounting hole locations.
+<img width="768" height="702" alt="Screenshot 2026-11-18 214206" src="https://github.com/user-attachments/assets/6498a137-c0d8-4689-97c8-bd4a1658fbde" />
+<img width="882" height="877" alt="Screenshot 2026-11-18 214222" src="https://github.com/user-attachments/assets/d29f70c8-5029-4927-82c4-fea0d338e8d7" />
+
+## Coupler Design
+
+A coupler was selected to connect the motor shaft to the lead screw. Torsional shear stress analysis was used to determine the required coupler dimensions and ensure it can safely transmit the maximum operating torque.
+
+### Selected Coupling
+[McMaster-Carr Coupling – Part #6412K14](https://www.mcmaster.com/6412K14/)
+
+## Coupler Design
+<img width="487" height="382" alt="image" src="https://github.com/user-attachments/assets/3d2b4a90-9af9-42c7-b052-a2e07377df40" />
+
+### Final Design
+
+The selected coupling was evaluated using torsional shear stress analysis to ensure it could safely transmit the required torque.
+<img width="499" height="381" alt="Screenshot 2026-11-18 214849" src="https://github.com/user-attachments/assets/e87ceac4-ef4f-4295-8405-1c359631ba9d" />
+<img width="999" height="627" alt="Screenshot 2026-11-18 214858" src="https://github.com/user-attachments/assets/9ce43187-2074-4b38-a60b-136227ea4ff8" />
+<img width="544" height="132" alt="Screenshot 2026-11-18 214907" src="https://github.com/user-attachments/assets/dd16c823-e106-4a38-90e8-097fe2aaf99d" />
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,10 +98,24 @@ The found dimensions limited our selection down between two brackets. Due to the
 
 <img width="1976" height="1818" alt="image6" src="https://github.com/user-attachments/assets/719c7b80-79a2-45ff-aad1-fbb99a667e07" />
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Top Frame FEA
 First, is to do an FEA on the top 40 series frame of 17 inches.
 #### Model Setup
 ##### Fixtures Caused By Bracket and Vertical Frame
+
 First, I split the surface of the top frame in contact with the vertical frames and the brackets. Then I added fixtures to those sections. Where I split the surface of the contact area where the top and vertical frames connected, I only placed vertical fixtures. Although not perfectly accurate, I then placed regular fixtures where the top frame interacts with the bracket.  
 
 
@@ -125,6 +202,116 @@ Limiting the displacement to about the thickness of the thinnest piece of hair a
 ###### Any Twisting or Warping Tendencies?
 In the above observed displacement FEA, all displacements are greatly exaggerated to make things more observable. In this viewing, it appears that the frame is acting the same as a Four-point flexural test, where there is little to no displacements at the supports, with most of the bending at the center. Weirdly, even with extreme exaggeration, it appears as though there is no twisting. In real life, this is all completely unnoticeable, only at the most extreme where the leadscrews are is the thickness of hairs displacement visible to the eye. Everywhere else the human eye will not even be able to notice.
 
-##### 
+##### Factor of Safety
+###### Smallest Factor of Safety
+At first glance, it may seem as though that the factor of safety throughout the frame is horrid, however, this is far from the case.
+
+
+<img width="1999" height="766" alt="image13" src="https://github.com/user-attachments/assets/a7019a6d-c302-4dba-859d-fc6111c25fd4" />
+
+
+When limiting to showing only sections of the frame below the 4 factor of safety, it is clear that only small parts of the frame are actually below it. With a tiny, tiny piece having the smallest factor of safety of 1.386. As said before with the stress section, this means an easy fix can be applied after assembly if this is actualy a concern worth worrying about.
+
+
+<img width="1999" height="656" alt="image8" src="https://github.com/user-attachments/assets/77697bb8-a93d-48cb-9852-10b18992e2ab" />
+
+
+
+<img width="1143" height="1275" alt="image22" src="https://github.com/user-attachments/assets/1e64bd5e-e2c0-4206-be27-8b7b11c1dd94" />
+
+
+
+#### Optimization Pass
+##### Small Changes Make a Big Difference
+Since it seems that only small parts of the frame are facing issues with the factor of safety. When looking at the chart from earlier, it seems some of the issues are caused by indents in the manufactured frame near the screw hole. Possibly, welding these little gaps can act as a retainer to help decrease the local stress.
+
+
+<img width="1001" height="843" alt="image3" src="https://github.com/user-attachments/assets/82ce4204-c6e0-43cb-91ad-5418dc5899e7" />
+
+
+<img width="1967" height="1085" alt="image" src="https://github.com/user-attachments/assets/aae9331d-1c18-47b7-8d8b-a2ec5a0212cb" />
+
+
+##### Final Results
+
+###### Factor of Safety/Stresses
+
+These minor and easy to apply changes completely fixed the issues and no stresses go below the factor of safety as seen below. Now it is located at another indent. It seems that some of the indentations are the main problem with this part of the frame. It maybe in our best interest to customly make some top frames that decrease them for increased strength.
+
+
+<img width="1843" height="1031" alt="image" src="https://github.com/user-attachments/assets/30ebeab1-7ff0-48f7-8e9e-54aa1d1b729f" />
+
+###### Displacement
+
+Furthermore, the already small displacement increased further, although not by much. Furthermore, it seemed to stay in same general area.
+
+
+<img width="1219" height="1079" alt="image" src="https://github.com/user-attachments/assets/95ba6127-7e2f-44db-938b-6154e1b83474" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Vertical Frame FEA
+Next is to use the 40 series vertical frames I was given.
+#### Model Setup
+##### Fixtures Connecting the Vertical Beam to the Base Beam
+I set the fixtures to the whole bottom of the side frame since it will be in full contact with the base frame.
+
+
+<img width="1359" height="1127" alt="image28" src="https://github.com/user-attachments/assets/bc84545e-1d23-4a80-905a-bf1ea5a452b5" />
+
+
+
+##### Forces Caused By Bracket and Top Frame
+
+
+
+Before starting, I first split the area where the bracket gets in contact with the vertical frame.
+
+
+<img width="887" height="1271" alt="image5" src="https://github.com/user-attachments/assets/31de0f8e-fd1b-4a7d-bae3-7db47a5556ed" />
+
+
+Then I split the section where the top and side frames come in contact.
+
+
+<img width="1637" height="871" alt="image19" src="https://github.com/user-attachments/assets/505c3c23-e34e-496b-a2d0-5a9c58b9b5c7" />
+
+
+
+Once completed, I placed the transverse force of 1.525 lbf found earlier to the contact area with the bracket. Then I applied the compression force caused by the top beam within the contact area between them. 
+
+
+<img width="1343" height="903" alt="image24" src="https://github.com/user-attachments/assets/17669866-20d7-4762-8da5-4e9cfd325002" />
+
+
+#### Results
+
+##### Von Mises Stress
+
+###### Max Stress
+
+
+
+
 
 
