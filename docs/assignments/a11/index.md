@@ -355,4 +355,29 @@ With great confusion on how the stresses and factor of safety significantly impr
 <img width="1457" height="1151" alt="image4" src="https://github.com/user-attachments/assets/cbf340cc-8fcb-4749-917d-be2c25e989f6" />
 
 
+##### Displacement
 
+Now when focusing on displacement, it did increase:
+
+
+
+<img width="549" height="1097" alt="image1" src="https://github.com/user-attachments/assets/0a4a3aef-0505-4587-ac76-56db0d2e4912" />
+
+
+
+
+The displacement change was less surprising. With less width to fight against the transverse force, the displacement did increase to .00176 inches. Now, the displacement is similar to the top frame with a hair’s length displacement. Meaning, displacement is again not something that needs to be worried about. 
+#### End Result
+In the end, it seems that the original side frames were incredibly overkill and were wasting money for no reason. In terms of stress, it was technically the worse choice without fixing it.
+
+
+
+
+## Lessons Learned
+
+In the end, we learned to run siulations for a 
+
+## Files 
+
+### Simulation Files
+The simulation files can be found here
