@@ -377,9 +377,16 @@ In the end, it seems that the original side frames were incredibly overkill and 
 
 In the end, we learned to run simulations for a 
 
+Ethan King : Throughout this assignment, I learned how to select a motor based on torque and speed requirements and how to apply mechanical design equations to real components. I also gained experience designing a motor mount bracket and selecting a coupler using bearing stress and torsional stress calculations. This assignment helped me better understand how individual components work together in a mechanical system and the importance of proper alignment, strength, and sizing when designing a functional assembly. 
+
+Juan:?????
 
 ## Time
 Josef Chelala : This project took me 10 hours to do. This is mostly due to trial and error with the FEA.
+
+Ethan King: Time took about 8 Hours
+
+Juan: ?????
 
 ## Files 
 
